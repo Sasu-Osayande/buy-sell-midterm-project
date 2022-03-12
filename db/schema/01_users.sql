@@ -1,7 +1,27 @@
--- Drop and recreate Users table (Example)
-
 DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS products CASCADE;
+DROP TABLE IF EXISTS messages CASCADE;
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255) NOT NULL
+  username VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE products (
+  id SERIAL PRIMARY KEY NOT NULL,
+  description VARCHAR(500) NOT NULL,
+  image_url VARCHAR (255) NOT NULL,
+  price INTEGER NOT NULL,
+  stock_level INTEGER NOT NULL DEFAULT 1,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE messages (
+  id SERIAL PRIMARY KEY NOT NULL,
+  title VARCHAR (50) NOT NULL,
+  description VARCHAR (500) NOT NULL,
+  from_user INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  to_user INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
