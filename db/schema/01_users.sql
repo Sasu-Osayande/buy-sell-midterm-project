@@ -10,6 +10,7 @@ CREATE TABLE users (
 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY NOT NULL,
+  title VARCHAR (50) NOT NULL,
   description VARCHAR(500) NOT NULL,
   image_url VARCHAR (255) NOT NULL,
   price INTEGER,
