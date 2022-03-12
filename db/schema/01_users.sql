@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS messages CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
-  username VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE products (
@@ -19,7 +19,7 @@ CREATE TABLE products (
 
 CREATE TABLE favourites (
   id SERIAL PRIMARY KEY NOT NULL,
-  product_id INTEGER REFERENCES products(id) ON DELETE CASCADE
+  product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
