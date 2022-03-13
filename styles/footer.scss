@@ -1,3 +1,7 @@
+* {
+  font-family: 'Cinzel', serif;
+}
+
 footer {
   background-color: burlywood;
   width: 100%;
@@ -12,5 +16,5 @@ footer {
 
 .icons {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }

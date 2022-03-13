@@ -1,0 +1,12 @@
+.form-control, #login-btn {
+  font-family: 'Poppins', sans-serif;
+}
+
+#login-btn {
+  transition-duration: 0.4s;
+}
+
+#login-btn:hover {
+  background-color: rgb(191, 188, 188);
+  color: white;
+}

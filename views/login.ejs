@@ -7,6 +7,15 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <title>Midterm Login Page</title>
+
+<!-- Custom Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
+
+<!-- Internal CSS -->
+<link rel="stylesheet" href="/styles/login.css" type="text/css" />
+
 </head>
 <body>
   <%- include('partials/header') %>
@@ -18,7 +27,7 @@
        <label>Enter Username</label>
        <input class="form-control" type="text" name="username" placeholder="E.g. funnybunny_10" style="width: 300px; margin: 0; margin-bottom: 1em;">
 
-       <button type="submit" class="btn btn-primary" style="margin-top: 1em;">Login</button>
+       <button type="submit" class="btn btn-outline-secondary" id="login-btn" style="margin-top: 1em;">Login</button>
      </div>
    </form>
  </main>
