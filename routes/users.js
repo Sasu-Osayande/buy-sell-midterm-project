@@ -9,17 +9,23 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+  router.get("/login", (req, res) => {
+    res.render("login");
+  });
+
+  router.post("/login", (req, res) => {
+    db.query(`SELECT * FROM users WHERE username = $1;`, [req.body.username])
       .then(data => {
-        const users = data.rows;
-        res.json({ users });
+        res.redirect("/shop/");
       })
       .catch(err => {
         res
-          .status(500)
-          .json({ error: err.message });
+          .status(500).send("Username does not exist. Please try again.")
       });
   });
+
   return router;
 };
+
+
+

@@ -14,7 +14,12 @@
 </head>
 
 <body>
-  <h1>Features page! 🥔</h1>
+  <h1>Home page! 🥔</h1>
+  <% for(let product of products) { %>
+    <p>
+      <%= product.title %>
+    </p>
+  <% } %>
 </body>
 
 </html>
