@@ -20,11 +20,6 @@
   justify-content: center;
 }
 
-#homepage-shop-all-btn {
-  margin-left: 22em;
-  margin-right: 22em;
-}
-
 #homepage-text {
   display: flex;
   justify-content: center;
@@ -37,4 +32,9 @@
 .item-container {
   height: 14em;
   border: 0.1em solid black;
+}
+
+#home-shop-all-button {
+  display: flex;
+  justify-content: center;
 }

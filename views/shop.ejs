@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
 
    <!-- Internal CSS -->
-   <link rel="stylesheet" href="/styles/homepage.css" type="text/css"/>
+   <link rel="stylesheet" href="/styles/shop.css" type="text/css"/>
 
   <!-- Scripts -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -25,25 +25,20 @@
 
 <body class ="main-page-body">
   <%- include('partials/header') %>
-<div class="top-homepage">
-  <img class="banner" src="https://media-exp1.licdn.com/dms/image/C4D1BAQGRUPPOfK9KfQ/company-background_10000/0/1625576064677?e=2147483647&v=beta&t=t8kKhNIMg5HLZ2N4ikml2STQVa8R6RjqQUscdBx5PJg">
+<div class="shop-header">
 
-  <p id="tagline">This is our tagline</p>
-
-  <div id="home-shop-all-button">
-    <form action="/shop/all-items" method="GET">
-      <button type="submit">Shop All Jewellery</button>
-      </form>
-  </div>
-
-  <p><h1 id="homepage-text">Featured Items</h1></p>
+  <p><h1 id="shop-text">Shop All Items</h1></p>
 
 </div>
 
 <section class="features-container">
   <div>
-    <% for (let image in images) { %>
-      <img class="item-container" src="<%= images[image].image_url %>">
+    <% for (let product in products) { %>
+      <p>
+        <%= products[product].title %>
+        <%= products[product].price %>
+      </p>
+      <img class="item-container" src="<%= products[product].image_url %>">
     <% } %>
   </div>
 </section>

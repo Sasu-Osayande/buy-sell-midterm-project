@@ -20,11 +20,17 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 </head>
 
+<% if(!username) { %>
+<nav>
+  <span id="logo">Logo</span>
+</nav>
+<% } else { %>
 
 <nav>
   <div class="left-nav">
-    <button id="shop-all-btn" type="submit">Shop All Jewellery</button>
-
+    <form action="/shop/all-items" method="GET">
+      <button id="shop-all-btn" type="submit">Shop All Jewellery</button>
+    </form>
   </div>
 
   <span> Welcome, <%= username %> </span>
@@ -55,10 +61,10 @@
 
     <div>
       <form method="POST" action="/users/logout">
-      <button id="logout-btn" type="submit">Logout</button>
+        <button id="logout-btn" type="submit">Logout</button>
       </form>
     </div>
   </div>
 </nav>
 
-
+<% } %>
