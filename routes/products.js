@@ -6,7 +6,8 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     getAllFeatures(db)
       .then((images) => {
-        res.render("homepage", {images});
+        const username = req.session.username
+        res.render("homepage", {images, username});
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

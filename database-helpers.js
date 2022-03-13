@@ -9,7 +9,6 @@ const getAllFeatures = (db, limit = 8) => {
       [limit]
     )
     .then((result) => {
-      console.log(result.rows);
       return result.rows;
     })
     .catch((err) => {
