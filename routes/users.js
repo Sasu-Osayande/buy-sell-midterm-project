@@ -16,7 +16,7 @@ module.exports = (db) => {
   router.post("/login", (req, res) => {
     db.query(`SELECT * FROM users WHERE username = $1;`, [req.body.username])
       .then(data => {
-        res.redirect("/shop/");
+        res.redirect("/shop");
       })
       .catch(err => {
         res

@@ -1,5 +1,5 @@
-const getAllFeatures = (limit = 8) => {
-  return pool
+const getAllFeatures = (db, limit = 8) => {
+  return db
     .query(
       `
     SELECT image_url

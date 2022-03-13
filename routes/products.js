@@ -1,17 +1,12 @@
 const express = require("express");
-// const getAllFeatures = require("../database-helpers");
+const {getAllFeatures} = require("../database-helpers");
 const router = express.Router();
-
-// const getAllFeatures = require("../database-helpers");
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.getAllFeatures()
-    // console.log("********FUNCTION*****:", features)
+    getAllFeatures(db)
       .then((images) => {
-        console.log("Images:", images);
-        res.send({images});
-        res.render("homepage");
+        res.render("homepage", {images});
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
