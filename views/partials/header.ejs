@@ -7,6 +7,15 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+
+  <!-- Custom Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap"
+    rel="stylesheet"
+  />
+
   <!-- Internal CSS -->
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 </head>
@@ -19,19 +28,30 @@
 
   <span id="logo">Logo</span>
 
-  <div class="entire-right">
-    <div class="right-nav">
-      <i class="fa-solid fa-message msg-icon"></i>
-      <i class="fa-solid fa-heart heart-icon"></i>
-      <i class="fa-solid fa-store store-icon"></i>
+  <div class="right-container">
+    <div class="entire-right">
+      <div class="icon-btn-container">
+        <div class="icon-container">
+          <i class="fa-solid fa-message msg-icon"></i>
+        </div>
+        <button id="message-btn" type="submit">Messages</button>
+      </div>
+      <div class="icon-btn-container">
+        <div class="icon-container">
+          <i class="fa-solid fa-heart heart-icon"></i>
+        </div>
+        <button id="my-favs-btn" type="submit">My Favs</button>
+      </div>
+      <div class="icon-btn-container">
+        <div class="icon-container">
+          <i class="fa-solid fa-store store-icon"></i>
+        </div>
+        <button id="my-shop-btn" type="submit">My Shop</button>
+      </div>
     </div>
 
-    <div class="under-icons">
-      <button id="message-btn" type="submit">Messages</button>
-      <button id="my-favs-btn" type="submit">My Favs</button>
-      <button id="my-shop-btn" type="submit">My Shop</button>
+    <div>
+      <button id="logout-btn" type="submit">Logout</button>
     </div>
   </div>
-
-  <button id="logout-btn" type="submit">Logout</button>
 </nav>

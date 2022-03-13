@@ -1,5 +1,5 @@
 .main-page-body {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }
@@ -7,4 +7,34 @@
 .banner {
   display: flex;
   width: -webkit-fill-available;
+}
+
+#tagline {
+  display: flex;
+  justify-content: center;
+}
+
+.top-homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#homepage-shop-all-btn {
+  margin-left: 22em;
+  margin-right: 22em;
+}
+
+#homepage-text {
+  display: flex;
+  justify-content: center;
+}
+
+.features-container {
+  margin: 3em;
+}
+
+.item-container {
+  height: 14em;
+  border: 0.1em solid black;
 }

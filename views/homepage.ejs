@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <title>Homepage</title>
 
+  <!-- Custom Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
+
    <!-- Internal CSS -->
    <link rel="stylesheet" href="/styles/homepage.css" type="text/css"/>
 
@@ -20,20 +25,22 @@
 
 <body class ="main-page-body">
   <%- include('partials/header') %>
-<div>
-  <img class="banner" src="https://i.pinimg.com/originals/d7/ca/b3/d7cab30b50211c31df480cb5a045ecde.jpg">
+<div class="top-homepage">
+  <img class="banner" src="https://media-exp1.licdn.com/dms/image/C4D1BAQGRUPPOfK9KfQ/company-background_10000/0/1625576064677?e=2147483647&v=beta&t=t8kKhNIMg5HLZ2N4ikml2STQVa8R6RjqQUscdBx5PJg">
 
-  <p>This is our tagline</p>
+  <p id="tagline">This is our tagline</p>
 
-  <button id="shop-all-btn" type="submit">Shop All Jewellery</button>
+  <button id="homepage-shop-all-btn" type="submit">Shop All Jewellery</button>
 
-  <p><h1>Featured Items</h1></p>
+  <p><h1 id="homepage-text">Featured Items</h1></p>
 
 </div>
 
-<div>
-  <img class="first-item" src="https://bnsec.bluenile.com/bluenile/is/image/bluenile/2a_Essentials_2-up_Lrg_2880x3575?hei=3575&wid=2880">
-</div>
+<section class="features-container">
+  <div>
+    <img class="item-container" src="https://bnsec.bluenile.com/bluenile/is/image/bluenile/2a_Essentials_2-up_Lrg_2880x3575?hei=3575&wid=2880">
+  </div>
+</section>
 
 
      <!-- Bootstrap JS -->
