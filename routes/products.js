@@ -30,5 +30,10 @@ module.exports = (db) => {
     res.render("favourites", {username});
   });
 
+  router.get("/myshop", (req, res) => {
+    const username = req.session.username
+    res.render("myshop", {username});
+  });
+
   return router;
 };
