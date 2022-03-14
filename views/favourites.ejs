@@ -7,7 +7,7 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <title>Homepage</title>
+  <title>Favourites</title>
 
   <!-- Custom Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
 
    <!-- Internal CSS -->
-   <link rel="stylesheet" href="/styles/shop.css" type="text/css"/>
+   <link rel="stylesheet" href="/styles/favourites.css" type="text/css"/>
 
   <!-- Scripts -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -23,40 +23,12 @@
 
 </head>
 
-<body class ="main-body-shop">
+<body class ="favs-body-shop">
   <%- include('partials/header') %>
 
-<div class = "fil-by-price-cont">
-  <form action="/shop/all-items" method="GET">
-    <button type="submit" style="width:300px;">Filter by Price</button>
-    </form>
-
-    <div class = "max-min-input">
-      <input class="min-price" type="text" name="min_price" placeholder="Min. price" style="width: 150px; margin: 0; margin-bottom: 1em;">
-
-      <input class="max-price" type="text" name="max_price" placeholder="Max. price" style="width: 150px; margin: 0; margin-bottom: 1em;">
-    </div>
+<div class="fav-header">
+  <p><h1 id="shop-text">My Fav Items</h1></p>
 </div>
-
-<div class="shop-header">
-  <p><h1 id="shop-text">Shop All Items</h1></p>
-</div>
-
-<section class="items-shop-page">
-  <div>
-    <% for (let product in products) { %>
-      <img class="item-container-shop" src="<%= products[product].image_url %>">
-
-      <div class = "item-info">
-        <%= products[product].title %>
-        $<%= products[product].price %>
-        SELLER: <%= products[product].username %>
-        <i class="fa-solid fa-heart heart-icon"></i>
-        <button type="submit" style="width:150px;">Message Seller</button>
-      </div>
-    <% } %>
-  </div>
-</section>
 
 
      <!-- Bootstrap JS -->

@@ -25,5 +25,10 @@ module.exports = (db) => {
       });
   });
 
+  router.get("/favourites", (req, res) => {
+    const username = req.session.username
+    res.render("favourites", {username});
+  });
+
   return router;
 };
