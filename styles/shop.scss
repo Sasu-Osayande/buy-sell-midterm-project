@@ -27,13 +27,25 @@
   margin-top: 15px;
 }
 
+.inside-itemsshop-page {
+  margin: 3em;
+  margin-top: 2px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
 .item-container-shop {
   height: 14em;
+  width: 14em;
   border: 0.1em solid black;
   margin-right: 1em;
+  margin-bottom: 2em;
 }
 
 .item-info {
   display: flex;
   flex-direction: column;
+  margin-right: 2em;
 }

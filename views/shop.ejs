@@ -43,14 +43,23 @@
 </div>
 
 <section class="items-shop-page">
-  <div>
+  <div class = "inside-itemsshop-page">
     <% for (let product in products) { %>
+
+      <div>
       <img class="item-container-shop" src="<%= products[product].image_url %>">
+      </div>
 
       <div class = "item-info">
-        <%= products[product].title %>
-        $<%= products[product].price %>
-        SELLER: <%= products[product].username %>
+        <div>
+          <b>TITLE:</b> <%= products[product].title %>
+        </div>
+        <div>
+          <b>PRICE:</b> $<%= products[product].price %>
+        </div>
+        <div>
+          <b>SELLER:</b> <%= products[product].username %>
+        </div>
         <i class="fa-solid fa-heart heart-icon"></i>
         <button type="submit" style="width:150px;">Message Seller</button>
       </div>
