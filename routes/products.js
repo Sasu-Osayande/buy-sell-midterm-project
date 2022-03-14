@@ -26,7 +26,7 @@ module.exports = (db) => {
       });
   });
 
-  router.post("/all-items", (req, res) => {
+  router.post("/all-items/filtered", (req, res) => {
     const options = req.body
     getAllItems(db, options)
       .then((products) => {
