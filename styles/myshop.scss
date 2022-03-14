@@ -13,3 +13,72 @@
 footer {
   margin-top: auto;
 }
+
+.input-titles {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  margin-left: 9em;
+  margin-right: 9em;
+  margin-top: 3em;
+  margin-bottom: 7em;
+}
+
+#title-box,
+#description-box,
+#image-url-box,
+#price-box {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 10em;
+  margin: 25px;
+}
+
+#title-box {
+  padding-right: 48px;
+  padding-left: 48px;
+}
+
+#description-box {
+  padding-right: 17px;
+  padding-left: 17px;
+}
+
+#image-url-box {
+  padding-right: 25.7px;
+  padding-left: 25.7px;
+}
+
+#price-box {
+  padding-right: 46.5px;
+  padding-left: 46.5px;
+}
+
+#post-item-btn {
+  margin-top: 1em;
+  margin-left: 65em;
+  margin-bottom: 25px;
+  margin-right: 25px;
+}
+
+#title-input,
+#description-input,
+#image-url-input,
+#price-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+#my-shop-textarea {
+  width: 56em;
+  margin-right: 25px;
+}
+
+#my-shop-textarea {
+  font-family: 'Poppins', sans-serif;
+}
