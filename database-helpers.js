@@ -18,46 +18,55 @@ const getAllFeatures = (db, limit = 8) => {
 
 exports.getAllFeatures = getAllFeatures;
 
-const getAllItems = (db) => {
+const getAllItems = (db, options) => {
 
-  return db
-      .query(
-        `
-      SELECT *, users.username
-      FROM products
-      JOIN users ON users.id = user_id
-      ORDER BY products DESC;
-      `)
-      .then((result) => {
-        console.log("Result:", result.rows)
-        return result.rows;
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+const queryParams = [];
+
+let queryString = `SELECT products.*, users.username
+FROM products
+JOIN users ON users.id = user_id
+`
+
+if (options.min_price && options.max_price) {
+  queryParams.push(Number(options.min_price), Number(options.max_price))
+  queryString += ` WHERE products.price > $${queryParams.length - 1} AND products.price < $${queryParams.length}`;
+}
+
+if (!options.min_price && options.max_price) {
+  queryParams.push(Number(options.max_price))
+  queryString += ` WHERE products.price < $${queryParams.length}`;
+}
+
+if (options.min_price && !options.max_price) {
+  queryParams.push(Number(options.min_price))
+  queryString += ` WHERE products.price > $${queryParams.length}`;
+}
+
+queryString += ` ORDER BY products DESC;`
+
+return db.query(queryString, queryParams)
+.then(res => {030
+  return res.rows
+});
 
 };
 
 exports.getAllItems = getAllItems;
 
-// const getAllItems = (db, options) => {
 
-// const queryParams = [];
 
-// let queryString = `SELECT *, users.username
+// return db
+// .query(
+//   `
+// SELECT *, users.username
 // FROM products
 // JOIN users ON users.id = user_id
 // ORDER BY products DESC;
-// `
-// if (options.min_price && options.max_price) {
-//   console.log("Min price", options.min_price)
-//   queryParams.push(Number(options.min_price, options.max_price))
-//   queryString += `AND products.price > $${queryParams.length - 1} AND products.price < $${queryParams.length}`;
-// }
-
-// return db.query(queryString, queryParams)
-// .then(res => {
-//   res.rows
+// `)
+// .then((result) => {
+//   console.log("Result:", result.rows)
+//   return result.rows;
+// })
+// .catch((err) => {
+//   console.log(err.message);
 // });
-
-// };
