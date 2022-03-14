@@ -1,5 +1,15 @@
+.favs-body-shop {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .fav-header {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+}
+
+footer {
+  margin-top: auto;
 }
