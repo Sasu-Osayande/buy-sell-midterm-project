@@ -1,0 +1,39 @@
+.main-body-shop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.shop-header {
+  display: flex;
+  justify-content: center;
+}
+
+.fil-by-price-cont {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+.max-min-input {
+  margin-top: 5px;
+}
+
+.items-shop-page {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.item-container-shop {
+  height: 14em;
+  border: 0.1em solid black;
+  margin-right: 1em;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+}

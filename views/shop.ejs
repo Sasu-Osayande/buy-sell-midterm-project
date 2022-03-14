@@ -23,22 +23,37 @@
 
 </head>
 
-<body class ="main-page-body">
+<body class ="main-body-shop">
   <%- include('partials/header') %>
-<div class="shop-header">
 
-  <p><h1 id="shop-text">Shop All Items</h1></p>
+<div class = "fil-by-price-cont">
+  <form action="/shop/all-items" method="POST">
+    <button type="submit" style="width:300px;">Filter by Price</button>
+    </form>
 
+    <div class = "max-min-input">
+      <input class="min-price" type="text" name="min-price" placeholder="Min. price" style="width: 150px; margin: 0; margin-bottom: 1em;">
+
+      <input class="max-price" type="text" name="max-price" placeholder="Max. price" style="width: 150px; margin: 0; margin-bottom: 1em;">
+    </div>
 </div>
 
-<section class="features-container">
+<div class="shop-header">
+  <p><h1 id="shop-text">Shop All Items</h1></p>
+</div>
+
+<section class="items-shop-page">
   <div>
     <% for (let product in products) { %>
-      <p>
+      <img class="item-container-shop" src="<%= products[product].image_url %>">
+
+      <div class = "item-info">
         <%= products[product].title %>
-        <%= products[product].price %>
-      </p>
-      <img class="item-container" src="<%= products[product].image_url %>">
+        $<%= products[product].price %>
+        SELLER: <%= products[product].username %>
+        <i class="fa-solid fa-heart heart-icon"></i>
+        <button type="submit" style="width:150px;">Message Seller</button>
+      </div>
     <% } %>
   </div>
 </section>
