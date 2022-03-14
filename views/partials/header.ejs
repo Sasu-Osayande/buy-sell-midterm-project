@@ -28,8 +28,8 @@
 
 <nav>
   <div class="left-nav">
-    <form action="/shop/" method="GET">
-      <button id="shop-all-btn" type="submit">Home Page</button>
+    <form action="/shop/all-items" method="GET">
+      <button id="shop-all-btn" type="submit">Shop All</button>
     </form>
     <div class ="inside-left-nav">
       <span> Welcome, <b><%= username %></b> </span>
@@ -37,8 +37,10 @@
   </div>
 
   <div class ="logo-nav">
-    <span id="logo">S A S A N I  J E W L S</span>
-    </div>
+  <form action="/shop" method="GET">
+    <button id="logo-btn" type="submit" style = "cursor: pointer;">S A S A N I  J E W L S</button>
+  </form>
+  </div>
 
   <div class="right-container">
     <div class="entire-right">
