@@ -22,20 +22,23 @@
 
 <% if(!username) { %>
 <nav>
-  <span id="logo">Logo</span>
+  <span id="logo">S A S A N I  J E W L S</span>
 </nav>
 <% } else { %>
 
 <nav>
   <div class="left-nav">
-    <form action="/shop/all-items" method="GET">
-      <button id="shop-all-btn" type="submit">Shop All Jewellery</button>
+    <form action="/shop/" method="GET">
+      <button id="shop-all-btn" type="submit">Home Page</button>
     </form>
+    <div class ="inside-left-nav">
+      <span> Welcome, <b><%= username %></b> </span>
+    </div>
   </div>
 
-  <span> Welcome, <%= username %> </span>
-
-  <span id="logo">Logo</span>
+  <div class ="logo-nav">
+    <span id="logo">S A S A N I  J E W L S</span>
+    </div>
 
   <div class="right-container">
     <div class="entire-right">

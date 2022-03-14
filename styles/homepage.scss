@@ -12,6 +12,7 @@
 #tagline {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .top-homepage {
@@ -27,14 +28,19 @@
 
 .features-container {
   margin: 3em;
+  margin-top: 2px;
+  display: flex;
+  justify-content: center;
 }
 
 .item-container {
   height: 14em;
   border: 0.1em solid black;
+  margin-right: 1em;
 }
 
 #home-shop-all-button {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }

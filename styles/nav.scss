@@ -11,11 +11,22 @@ nav {
   padding-left: 1em;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .left-nav {
   display: flex;
-  justify-content: flex-start;
+}
+
+.inside-left-nav {
+  display: flex;
+  margin-left: 90px;
+}
+
+.logo-nav {
+  display: flex;
 }
 
 .right-nav {
@@ -32,7 +43,6 @@ nav {
 
 .entire-right {
   display: flex;
-  // flex-direction: column;
 }
 
 #logo {
@@ -49,10 +59,8 @@ nav {
 
 #logout-btn {
   margin-left: 30px;
-  // position: absolute;
-  //   right: 0px;
-  //   margin-right: 15px;
 }
+
 
 #shop-all-btn {
   position: absolute;
