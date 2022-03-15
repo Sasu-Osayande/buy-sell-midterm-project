@@ -61,3 +61,55 @@ exports.getAllItems = getAllItems;
 // });
 
 // };
+
+
+const getMyItems = (db) => {
+
+// const username
+
+  return db
+      .query(
+        `
+      SELECT *, users.username
+      FROM products
+      JOIN users ON users.id = user_id
+      WHERE users.username = 'Alice'
+      ORDER BY products DESC;
+      `)
+      .then((result) => {
+        // console.log("Result:", result.rows)
+        return result.rows;
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+
+};
+exports.getMyItems = getMyItems;
+
+
+const addItem = (db, product) => {
+
+  return db.query(
+    `
+    INSERT INTO products (title, description, image_url, price)
+    VALUES($1, $2, $3, $4) RETURNING *;
+    `,
+    [
+      product.title,
+      product.description,
+      product.image_url,
+      product.price
+    ]
+  )
+  .then((result) => {
+    console.log(result.rows)
+    console.log(product.title)
+    return result.rows;
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+
+};
+exports.addItem = addItem;

@@ -1,5 +1,5 @@
 const express = require("express");
-const {getAllFeatures, getAllItems} = require("../database-helpers");
+const {getAllFeatures, getAllItems, getMyItems, addItem} = require("../database-helpers");
 const router = express.Router();
 
 module.exports = (db) => {
@@ -31,8 +31,26 @@ module.exports = (db) => {
   });
 
   router.get("/myshop", (req, res) => {
-    const username = req.session.username
-    res.render("myshop", {username});
+    getMyItems(db)
+      .then((myProducts) => {
+        const username = req.session.username
+        res.render("myshop", {myProducts, username});
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
+  router.post("/myshop", (req, res) => {
+    const product = req.body;
+    addItem(db, product)
+    .then((myProducts) => {
+      const username = req.session.username
+      res.render("myshop", {myProducts, username});
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
   });
 
   return router;

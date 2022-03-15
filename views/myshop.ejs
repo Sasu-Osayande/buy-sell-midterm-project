@@ -38,7 +38,7 @@
       </span>
     </div>
     <div>
-      <textarea id="my-shop-textarea" name="text" rows="1"></textarea>
+      <textarea id="my-shop-textarea" name="title" rows="1"></textarea>
     </div>
   </div>
 
@@ -75,12 +75,40 @@
     </div>
   </div>
 
+  <form action="/shop/myshop" method="POST">
   <button type="submit" class="btn btn-outline-secondary" id="post-item-btn" style="margin-top: 1em;">Submit</button>
+</form>
+
 </div>
 
 <div class="myshop-header">
   <p><h1 id="my-items-text">My Items</h1></p>
 </div>
+
+<section class="items-my-shop-page">
+  <div class = "inside-items-my-shop-page">
+    <% for (let product in myProducts) { %>
+
+      <div>
+      <img class="item-container-my-shop" src="<%= myProducts[product].image_url %>">
+      </div>
+
+      <div class = "item-info">
+        <div>
+          <b>TITLE:</b> <%= myProducts[product].title %>
+        </div>
+        <div>
+          <b>PRICE:</b> $<%= myProducts[product].price %>
+        </div>
+        <div class="product-description">
+          <b>DESCRIPTION:</b> <%= myProducts[product].description %>
+        </div>
+        <button type="submit" style="width:150px;">Mark As Sold</button>
+        <button type="submit" style="width:150px;">Delete</button>
+      </div>
+    <% } %>
+  </div>
+</section>
 
      <!-- Bootstrap JS -->
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
