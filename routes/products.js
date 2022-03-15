@@ -33,7 +33,7 @@ module.exports = (db) => {
   router.get("/myshop", (req, res) => {
     const username = req.session.username
     const queryString = `
-    SELECT *, users.username
+    SELECT products.id, products.title, products.description, products.image_url, products.price, users.id as userid, users.username
     FROM products
     JOIN users ON users.id = user_id
     WHERE users.username = '${username}'
@@ -41,6 +41,7 @@ module.exports = (db) => {
     `;
     db.query(queryString)
       .then((myProducts) => {
+        console.log("My Products:", myProducts.rows);
         myProducts = myProducts.rows;
         res.render("myshop", { myProducts, username });
       })
@@ -91,11 +92,13 @@ module.exports = (db) => {
   });
 
   router.post("/myshop/:id/delete", (req, res) => {
-    const product = req.body;
+    const id = req.params.id;
 
-    deleteItem(db, product)
+    deleteItem(db, id)
       .then((data) => {
-        delete req.params.id;
+        // console.log("Product:", product);
+        console.log("ProductId:", id);
+        // delete id;
         res.redirect("/shop/myshop");
       })
       .catch((err) => {

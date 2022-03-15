@@ -25,7 +25,7 @@ const getAllItems = (db) => {
   return db
       .query(
         `
-      SELECT *, users.username
+      SELECT products.id, products.title, products.description, products.image_url, products.price, users.id as userid, users.username
       FROM products
       JOIN users ON users.id = user_id
       ORDER BY products DESC;
@@ -114,7 +114,7 @@ const addItem = (db, product) => {
 };
 exports.addItem = addItem;
 
-const deleteItem = (db, product) => {
+const deleteItem = (db, id) => {
   return db
   .query(
     `
@@ -122,7 +122,7 @@ const deleteItem = (db, product) => {
     FROM products
     WHERE id = $1;
     `,
-    [product.id]
+    [id]
   )
   .then((result) => {
     return result.rows;
