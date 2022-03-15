@@ -29,6 +29,32 @@
 <!-- Section for New Favourite Items -->
 <section class="items-fav-page">
 
+  <div class = "inside-itemsshop-page">
+    <% for (let fav in favs) { %>
+
+      <div>
+      <img class="item-container-shop" src="<%= favs[fav].image_url %>">
+      </div>
+
+      <div class = "item-info">
+        <div>
+          <b>TITLE:</b> <span class = "product-title"><%= favs[fav].title %> </span>
+        </div>
+        <div>
+          <b>PRICE:</b> $<%= favs[fav].price %>
+        </div>
+        <div>
+          <b>SELLER:</b> <%= favs[fav].username %>
+        </div>
+
+          <span id="clickable-heart" style="cursor:pointer"><i class="fa-solid fa-heart heart-icon" ></i>
+          </span>
+        <button type="submit" style="width:150px;">Message Seller</button>
+      </div>
+    <% } %>
+  </div>
+
+
 </section>
 
      <!-- Bootstrap JS -->

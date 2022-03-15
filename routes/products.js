@@ -1,6 +1,6 @@
 const express = require("express");
 const { options } = require("pg/lib/defaults");
-const {getAllFeatures, getAllItems} = require("../database-helpers");
+const {getAllFeatures, getAllItems, insertFavItem, getAllFavsForUser} = require("../database-helpers");
 const router = express.Router();
 
 module.exports = (db) => {
@@ -41,18 +41,35 @@ module.exports = (db) => {
 
   router.get("/favourites", (req, res) => {
     const username = req.session.username
-    // need user id here 
-    res.render("favourites", {username});
+    const userId = req.session.userId;
+
+    getAllFavsForUser(db, userId)
+    .then((favs) => {
+      console.log(favs)
+      res.render("favourites", {favs, username});
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+
   });
 
   router.post("/favourites/:id", (req, res) => {
-    console.log("URL of favourites URL", req.params.id)
 
-    console.log("Username", req.session.username)
+    const userId = req.session.userId;
+    const productId = req.params.id;
 
-    console.log("User ID", req.session.userId)
     // this route will render the favourites page with the favourited items of the specific user
-    res.end()
+
+    insertFavItem(db, productId, userId)
+    .then(item => {
+      res.send(item);
+    })
+    .catch(e => {
+      console.error(e);
+      res.send(e)
+    });
+
   });
 
   router.get("/myshop", (req, res) => {

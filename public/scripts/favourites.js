@@ -4,7 +4,6 @@ $(document).ready(function() {
 
   $(heartIcon).on("click",function() {
 
-
     //changes colour of heart to red
     $(this).css('color','#ba1f3b')
 
