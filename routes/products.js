@@ -41,11 +41,18 @@ module.exports = (db) => {
 
   router.get("/favourites", (req, res) => {
     const username = req.session.username
+    // need user id here 
     res.render("favourites", {username});
   });
 
-  router.post("/favourites/items", (req, res) => {
-    // this route will render the favourites page with the favourited items
+  router.post("/favourites/:id", (req, res) => {
+    console.log("URL of favourites URL", req.params.id)
+
+    console.log("Username", req.session.username)
+
+    console.log("User ID", req.session.userId)
+    // this route will render the favourites page with the favourited items of the specific user
+    res.end()
   });
 
   router.get("/myshop", (req, res) => {

@@ -51,7 +51,7 @@
 
       <div class = "item-info">
         <div>
-          <b>TITLE:</b> <%= products[product].title %>
+          <b>TITLE:</b> <span class = "product-title"><%= products[product].title %> </span>
         </div>
         <div>
           <b>PRICE:</b> $<%= products[product].price %>
@@ -59,6 +59,11 @@
         <div>
           <b>SELLER:</b> <%= products[product].username %>
         </div>
+
+        <p id= "product-id"><%= products[product].id%></p>
+
+        
+
           <span id="clickable-heart" style="cursor:pointer"><i class="fa-solid fa-heart heart-icon" ></i>
           </span>
         <button type="submit" style="width:150px;">Message Seller</button>
