@@ -29,7 +29,7 @@
 <div class="myshop-header">
   <p><h1 id="shop-text">Post Item</h1></p>
 </div>
-
+<form id="my-shop-page" action="/shop/myshop" method="POST">
 <div class="input-titles">
   <div id="title-input">
     <div id="title-box">
@@ -38,7 +38,7 @@
       </span>
     </div>
     <div>
-      <textarea id="my-shop-textarea" name="title" rows="1"></textarea>
+      <input id="my-shop-textarea" name="title" rows="1"></input>
     </div>
   </div>
 
@@ -49,7 +49,7 @@
       </span>
     </div>
     <div>
-      <textarea id="my-shop-textarea" name="text" rows="1"></textarea>
+      <input id="my-shop-textarea" name="description" rows="1"></input>
     </div>
   </div>
 
@@ -60,7 +60,7 @@
       </span>
     </div>
     <div>
-      <textarea id="my-shop-textarea" name="text" rows="1"></textarea>
+      <input id="my-shop-textarea" name="image_url" rows="1"></input>
     </div>
   </div>
 
@@ -71,11 +71,10 @@
       </span>
     </div>
     <div>
-      <textarea id="my-shop-textarea" name="text" rows="1"></textarea>
+      <input id="my-shop-textarea" name="price" rows="1"></input>
     </div>
   </div>
 
-  <form action="/shop/myshop" method="POST">
   <button type="submit" class="btn btn-outline-secondary" id="post-item-btn" style="margin-top: 1em;">Submit</button>
 </form>
 
@@ -88,10 +87,14 @@
 <section class="items-my-shop-page">
   <div class = "inside-items-my-shop-page">
     <% for (let product in myProducts) { %>
-
+    <div>
+      <!-- <div class="sold-popup">
+      <p>SOLD</p>
+      </div> -->
       <div>
-      <img class="item-container-my-shop" src="<%= myProducts[product].image_url %>">
+        <img class="item-container-my-shop" src="<%= myProducts[product].image_url %>">
       </div>
+    </div>
 
       <div class = "item-info">
         <div>
@@ -103,8 +106,12 @@
         <div class="product-description">
           <b>DESCRIPTION:</b> <%= myProducts[product].description %>
         </div>
-        <button type="submit" style="width:150px;">Mark As Sold</button>
+        <form action="/shop/myshop" method="POST">
+        <button id="mark-as-sold" type="submit" style="width:150px;">Mark As Sold</button>
+      </form>
+      <form action="/shop/myshop/<%= myProducts[product].id %>/delete" method="POST">
         <button type="submit" style="width:150px;">Delete</button>
+      </form>
       </div>
     <% } %>
   </div>

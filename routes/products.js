@@ -1,5 +1,5 @@
 const express = require("express");
-const {getAllFeatures, getAllItems, getMyItems, addItem} = require("../database-helpers");
+const {getAllFeatures, getAllItems, getMyItems, addItem, deleteItem} = require("../database-helpers");
 const router = express.Router();
 
 module.exports = (db) => {
@@ -31,26 +31,76 @@ module.exports = (db) => {
   });
 
   router.get("/myshop", (req, res) => {
-    getMyItems(db)
+    const username = req.session.username
+    const queryString = `
+    SELECT *, users.username
+    FROM products
+    JOIN users ON users.id = user_id
+    WHERE users.username = '${username}'
+    ORDER BY products DESC;
+    `;
+    db.query(queryString)
       .then((myProducts) => {
-        const username = req.session.username
-        res.render("myshop", {myProducts, username});
+        myProducts = myProducts.rows;
+        res.render("myshop", { myProducts, username });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
   });
 
+  // router.post("/myshop", (req, res) => {
+  //   const product = req.body;
+
+  //   addItem(db, product)
+  //   .then((myProducts) => {
+  //     const username = req.session.username;
+  //     const userID = req.session.id;
+
+  //     console.log("My Products:", myProducts);
+  //     res.render("myshop", { myProducts, username, user_id: userID });
+  //   })
+  //   .catch((err) => {
+  //     res.status(500).json({ error: err.message });
+  //   });
+  // });
+
   router.post("/myshop", (req, res) => {
+    const username = req.session.username
+    const userID = req.session.id;
+
     const product = req.body;
-    addItem(db, product)
+    const title = product.title;
+    const description = product.description;
+    const image_url = product.image_url;
+    const price = product.price;
+
+    const queryString = `
+    INSERT INTO products (title, description, image_url, price, user_id)
+    VALUES($1, $2, $3, $4, $5) RETURNING *;
+    `;
+    db.query(queryString, [title, description, image_url, price, userID])
     .then((myProducts) => {
-      const username = req.session.username
+      myProducts = myProducts.rows;
+      console.log("Products:", myProducts)
       res.render("myshop", {myProducts, username});
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
+  });
+
+  router.post("/myshop/:id/delete", (req, res) => {
+    const product = req.body;
+
+    deleteItem(db, product)
+      .then((data) => {
+        delete req.params.id;
+        res.redirect("/shop/myshop");
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
   });
 
   return router;

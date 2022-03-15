@@ -18,9 +18,12 @@ module.exports = (db) => {
   router.post("/login", (req, res) => {
     db.query(`SELECT * FROM users WHERE username = $1;`, [req.body.username])
       .then(data => {
-        const result = data.rows[0].username
-        req.session.username = result
-        console.log(result)
+        const result = data.rows[0].username;
+        const userID = data.rows[0].id;
+
+        req.session.id = userID;
+        req.session.username = result;
+        
         res.redirect("/shop");
       })
       .catch(err => {

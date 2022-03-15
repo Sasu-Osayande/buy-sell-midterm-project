@@ -16,9 +16,21 @@
 
 // });
 
+const loadProducts = function () {
+  $.ajax({
+    url: "/shop/myshop",
+    method: "GET",
+  })
+    .then((res) => (res))
+    .catch((err) => console.log(err));
+};
+loadProducts();
+
+$("form").submit(function() {
+  $("#my-shop-page").load("/shop/myshop");
+});
 
 
-
-// const $addNewItem = $(`
-
-// `)
+$("#mark-as-sold").submit(function() {
+  $(".sold-popup").slideUp();
+});

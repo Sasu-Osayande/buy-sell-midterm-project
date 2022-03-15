@@ -1,3 +1,5 @@
+const users = require("./routes/users");
+
 const getAllFeatures = (db, limit = 8) => {
   return db
     .query(
@@ -65,8 +67,6 @@ exports.getAllItems = getAllItems;
 
 const getMyItems = (db) => {
 
-// const username
-
   return db
       .query(
         `
@@ -90,6 +90,7 @@ exports.getMyItems = getMyItems;
 
 const addItem = (db, product) => {
 
+  console.log("Products:", product);
   return db.query(
     `
     INSERT INTO products (title, description, image_url, price)
@@ -103,8 +104,7 @@ const addItem = (db, product) => {
     ]
   )
   .then((result) => {
-    console.log(result.rows)
-    console.log(product.title)
+    console.log("Result:", result.rows)
     return result.rows;
   })
   .catch((err) => {
@@ -113,3 +113,23 @@ const addItem = (db, product) => {
 
 };
 exports.addItem = addItem;
+
+const deleteItem = (db, product) => {
+  return db
+  .query(
+    `
+    DELETE
+    FROM products
+    WHERE id = $1;
+    `,
+    [product.id]
+  )
+  .then((result) => {
+    return result.rows;
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+}
+exports.deleteItem = deleteItem;
+
