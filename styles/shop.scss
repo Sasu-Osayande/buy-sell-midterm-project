@@ -35,12 +35,42 @@
   flex-wrap: wrap;
 }
 
+.sold-container {
+  position: relative;
+}
+
+.sold-item-container-shop,
+.sold-img {
+  height: 14em;
+  width: 14em;
+  border: 0.1em solid black;
+  margin-right: 1em;
+  margin-bottom: 2em;
+  position: absolute;
+}
+
 .item-container-shop {
   height: 14em;
   width: 14em;
   border: 0.1em solid black;
   margin-right: 1em;
   margin-bottom: 2em;
+}
+
+.sold-item-container-shop {
+  z-index: 10;
+}
+
+.sold-img {
+  background-color: rgb(203, 199, 199);
+  opacity: 80%;
+  z-index: 100;
+
+  float: right;
+  overflow: visible;
+  position: relative;
+  height: 14em;
+  width: 14em;
 }
 
 .item-info {

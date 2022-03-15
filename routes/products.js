@@ -1,5 +1,5 @@
 const express = require("express");
-const {getAllFeatures, getAllItems, getMyItems, addItem, deleteItem} = require("../database-helpers");
+const {getAllFeatures, getAllItems, getMyItems, addItem, deleteItem, soldItem} = require("../database-helpers");
 const router = express.Router();
 
 module.exports = (db) => {
@@ -33,7 +33,7 @@ module.exports = (db) => {
   router.get("/myshop", (req, res) => {
     const username = req.session.username
     const queryString = `
-    SELECT products.id, products.title, products.description, products.image_url, products.price, users.id as userid, users.username
+    SELECT products.id, products.title, products.description, products.image_url, products.price, products.is_sold, users.id as userid, users.username
     FROM products
     JOIN users ON users.id = user_id
     WHERE users.username = '${username}'
@@ -96,9 +96,6 @@ module.exports = (db) => {
 
     deleteItem(db, id)
       .then((data) => {
-        // console.log("Product:", product);
-        console.log("ProductId:", id);
-        // delete id;
         res.redirect("/shop/myshop");
       })
       .catch((err) => {
@@ -106,5 +103,16 @@ module.exports = (db) => {
       });
   });
 
+  router.post("/myshop/:id/sold", (req, res) => {
+    const id = req.params.id;
+
+    soldItem(db, id)
+      .then((data) => {
+        res.redirect("/shop/myshop");
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  })
   return router;
 };

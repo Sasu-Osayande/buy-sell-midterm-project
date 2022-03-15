@@ -87,13 +87,19 @@
 <section class="items-my-shop-page">
   <div class = "inside-items-my-shop-page">
     <% for (let product in myProducts) { %>
-    <div>
-      <!-- <div class="sold-popup">
-      <p>SOLD</p>
-      </div> -->
+    <div id="sold-container">
+      <% if (myProducts[product].is_sold === true) { %>
+      <div class="sold-popup">
+        <img class="sold-img" src="https://www.psdstamps.com/wp-content/uploads/2020/03/sold-stamp-png.png">
+      </div>
+      <div>
+        <img class="sold-item-container-my-shop" src="<%= myProducts[product].image_url %>">
+      </div>
+      <% } else { %>
       <div>
         <img class="item-container-my-shop" src="<%= myProducts[product].image_url %>">
       </div>
+      <% } %>
     </div>
 
       <div class = "item-info">
@@ -106,7 +112,7 @@
         <div class="product-description">
           <b>DESCRIPTION:</b> <%= myProducts[product].description %>
         </div>
-        <form action="/shop/myshop" method="POST">
+        <form action="/shop/myshop/<%= myProducts[product].id %>/sold" method="POST">
         <button id="mark-as-sold" type="submit" style="width:150px;">Mark As Sold</button>
       </form>
       <form action="/shop/myshop/<%= myProducts[product].id %>/delete" method="POST">

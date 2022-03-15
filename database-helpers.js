@@ -25,7 +25,7 @@ const getAllItems = (db) => {
   return db
       .query(
         `
-      SELECT products.id, products.title, products.description, products.image_url, products.price, users.id as userid, users.username
+      SELECT products.id, products.title, products.description, products.image_url, products.price, products.is_sold, users.id as userid, users.username
       FROM products
       JOIN users ON users.id = user_id
       ORDER BY products DESC;
@@ -132,4 +132,23 @@ const deleteItem = (db, id) => {
   });
 }
 exports.deleteItem = deleteItem;
+
+const soldItem = (db, id) => {
+  return db
+  .query(
+    `
+    UPDATE products
+    SET is_sold = TRUE
+    WHERE id = $1;
+    `,
+    [id]
+  )
+  .then((result) => {
+    return result.rows;
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+}
+exports.soldItem = soldItem;
 

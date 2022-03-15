@@ -80,7 +80,7 @@ footer {
 }
 
 #my-shop-textarea {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .items-my-shop-page {
@@ -97,12 +97,22 @@ footer {
   flex-wrap: wrap;
 }
 
-.item-container-my-shop {
+.sold-container {
+  position: relative;
+}
+
+.sold-item-container-my-shop,
+.sold-img {
   height: 14em;
   width: 14em;
   border: 0.1em solid black;
   margin-right: 1em;
   margin-bottom: 2em;
+  position: absolute;
+}
+
+.sold-item-container-my-shop {
+  z-index: 10;
 }
 
 .item-info {
@@ -112,12 +122,23 @@ footer {
   width: 12em;
 }
 
-// .sold-popup {
-//   color: red;
-//   background-color: rgb(203, 199, 199);
-//   height: 14em;
-//   width: 14em;
-//   border: 0.1em solid black;
-//   margin-right: 1em;
-//   margin-bottom: 2em;
-// }
+.sold-img {
+  background-color: rgb(203, 199, 199);
+  opacity: 80%;
+  z-index: 100;
+
+  float: right;
+  overflow: visible;
+  position: relative;
+  height: 14em;
+  width: 14em;
+}
+
+.item-container-my-shop {
+  height: 14em;
+  width: 14em;
+  border: 0.1em solid black;
+  margin-right: 1em;
+  margin-bottom: 2em;
+}
+
