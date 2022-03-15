@@ -85,9 +85,10 @@ const getAllFavsForUser = (db, userID) => {
 
   return db
     .query(
-      `SELECT favourites.*, products.*
+      `SELECT favourites.*, products.*, users.username
       FROM favourites
       JOIN products ON products.id = favourites.product_id
+      JOIN users ON users.id = products.user_id
       WHERE favourites.user_id = $1
       `
     ,

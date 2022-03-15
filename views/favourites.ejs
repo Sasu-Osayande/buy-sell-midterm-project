@@ -29,16 +29,16 @@
 <!-- Section for New Favourite Items -->
 <section class="items-fav-page">
 
-  <div class = "inside-itemsshop-page">
+  <div class = "inside-favshop-page">
     <% for (let fav in favs) { %>
 
       <div>
-      <img class="item-container-shop" src="<%= favs[fav].image_url %>">
+      <img class="fav-container-shop" src="<%= favs[fav].image_url %>">
       </div>
 
-      <div class = "item-info">
+      <div class = "fav-info">
         <div>
-          <b>TITLE:</b> <span class = "product-title"><%= favs[fav].title %> </span>
+          <b>TITLE:</b> <%= favs[fav].title %> </span>
         </div>
         <div>
           <b>PRICE:</b> $<%= favs[fav].price %>
