@@ -16,15 +16,49 @@ module.exports = (db) => {
   });
 
   router.get("/all-items", (req, res) => {
-    getAllItems(db, req.url)
-      .then((products) => {
-        const username = req.session.username
-        res.render("shop", {products, username});
+    const username = req.session.username;
+    const userID = req.session.userId;
+
+    const promiseOne = getAllItems(db, req.url)
+
+    const promiseTwo = getAllFavsForUser(db, userID)
+
+
+    Promise.all([promiseOne, promiseTwo]).then((values) => {
+
+      const productsArray = values[0]
+      const favourites = values[1]
+
+      const products = productsArray.map(product => {
+       const favouriteProduct = favourites.find(elem => elem.id === product.id)
+        if (favouriteProduct) {
+          product.favourite = true;
+        }
+        return product;
       })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
+
+      res.render("shop", {products, username});
+    });
+
+      // .then((products) => {
+      //   res.render("shop", {products, username});
+      // })
+      // .catch((err) => {
+      //   res.status(500).json({ error: err.message });
+      // });
   });
+
+  // router.get("/all-items", (req, res) => {
+  //   const username = req.session.username;
+
+  //   getAllItems(db, req.url)
+  //     .then((products) => {
+  //       res.render("shop", {products, username});
+  //     })
+  //     .catch((err) => {
+  //       res.status(500).json({ error: err.message });
+  //     });
+  // });
 
   router.post("/all-items/filtered", (req, res) => {
     const options = req.body
@@ -45,7 +79,6 @@ module.exports = (db) => {
 
     getAllFavsForUser(db, userId)
     .then((favs) => {
-      console.log(favs)
       res.render("favourites", {favs, username});
     })
     .catch((err) => {
@@ -58,8 +91,6 @@ module.exports = (db) => {
 
     const userId = req.session.userId;
     const productId = req.params.id;
-
-    // this route will render the favourites page with the favourited items of the specific user
 
     insertFavItem(db, productId, userId)
     .then(item => {

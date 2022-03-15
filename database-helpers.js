@@ -76,13 +76,6 @@ exports.insertFavItem = insertFavItem;
 
 const getAllFavsForUser = (db, userID) => {
 
-  // `SELECT products.*, users.username, products.id
-  // FROM products
-  // JOIN users ON users.id = products.user_id
-  // JOIN favourites ON favourites.user_id = users.id
-  // WHERE favourites.user_id = $1
-  // `
-
   return db
     .query(
       `SELECT favourites.*, products.*, users.username
