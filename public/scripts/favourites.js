@@ -30,29 +30,22 @@ let $item = $(`
   </div>
 `)
 
-// function to insert post into favourites table
-const getAllFeatures = (db, limit = 8) => {
-  return db
-    .query(
-      `
-    SELECT image_url
-    FROM products
-    LIMIT $1;
-    `,
-      [limit]
-    )
-    .then((result) => {
-      return result.rows;
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-};
-
-
-// function to pull data from favourites table
 
 $(document).ready(function() {
+
+  const heartIcon = (".heart-icon")
+
+  $(heartIcon).on("click",function() {
+
+    $(this).css('color','#ba1f3b')
+
+    $.ajax({
+      // method: "POST",
+      // url: '/shop/favourites',
+      // .then()
+    })
+
+  })
 
 
 

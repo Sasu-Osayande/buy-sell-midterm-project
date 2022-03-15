@@ -44,6 +44,10 @@ module.exports = (db) => {
     res.render("favourites", {username});
   });
 
+  router.post("/favourites/items", (req, res) => {
+    // this route will render the favourites page with the favourited items
+  });
+
   router.get("/myshop", (req, res) => {
     const username = req.session.username
     res.render("myshop", {username});

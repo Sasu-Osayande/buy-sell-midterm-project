@@ -45,7 +45,7 @@ if (options.min_price && !options.max_price) {
 queryString += ` ORDER BY products DESC;`
 
 return db.query(queryString, queryParams)
-.then(res => {030
+.then(res => {
   return res.rows
 });
 
