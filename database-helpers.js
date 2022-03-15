@@ -55,18 +55,4 @@ exports.getAllItems = getAllItems;
 
 
 
-// return db
-// .query(
-//   `
-// SELECT *, users.username
-// FROM products
-// JOIN users ON users.id = user_id
-// ORDER BY products DESC;
-// `)
-// .then((result) => {
-//   console.log("Result:", result.rows)
-//   return result.rows;
-// })
-// .catch((err) => {
-//   console.log(err.message);
-// });
+
