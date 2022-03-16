@@ -10,3 +10,41 @@
   margin-top: 50px;
   margin-bottom: 10px;
 }
+
+.my-messages-page {
+  border: 2px solid black;
+  margin-left: 10em;
+  height: 25em;
+  margin-right: 10em;
+  margin-bottom: 10em;
+  padding-bottom: 1em;
+}
+
+.messages-top h3 {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1em;
+}
+
+.messages-container {
+  height: 15em;
+}
+
+#msg-top-border {
+  border-top: 3px solid black;
+}
+
+.messages-bottom {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+#msg-input {
+  margin-right: 1em;
+  width: 57em;
+}
+
+#msg-bottom-border {
+  border-top: 3px solid black;
+}
