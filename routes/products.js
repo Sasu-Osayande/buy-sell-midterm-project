@@ -21,12 +21,9 @@ module.exports = (db) => {
     const promiseOne = getAllItems(db, req.url)
     const promiseTwo = getAllFavsForUser(db, userID)
 
-
     Promise.all([promiseOne, promiseTwo]).then((values) => {
-
       const productsArray = values[0]
       const favourites = values[1]
-
       const products = productsArray.map(product => {
        const favouriteProduct = favourites.find(elem => elem.id === product.id)
         if (favouriteProduct) {
@@ -34,7 +31,6 @@ module.exports = (db) => {
         }
         return product;
       })
-
       res.render("shop", {products, username});
     });
   });
@@ -45,7 +41,6 @@ module.exports = (db) => {
     const options = req.body;
     const promiseOne = getAllItems(db, options)
     const promiseTwo = getAllFavsForUser(db, userID)
-
 
     Promise.all([promiseOne, promiseTwo]).then((values) => {
       const productsArray = values[0]
@@ -74,7 +69,6 @@ module.exports = (db) => {
   router.get("/favourites", (req, res) => {
     const username = req.session.username
     const userId = req.session.userId;
-
     getAllFavsForUser(db, userId)
     .then((favs) => {
       res.render("favourites", {favs, username});
@@ -85,10 +79,8 @@ module.exports = (db) => {
   });
 
   router.post("/favourites/:id", (req, res) => {
-
     const userId = req.session.userId;
     const productId = req.params.id;
-
     insertFavItem(db, productId, userId)
     .then(item => {
       res.send(item);
@@ -101,10 +93,8 @@ module.exports = (db) => {
   });
 
   router.post("/favourites/delete/:id", (req, res) => {
-
     const userId = req.session.userId;
     const productId = req.params.id;
-
     deleteFavItem(db, productId, userId)
     .then(item => {
       res.send(item);

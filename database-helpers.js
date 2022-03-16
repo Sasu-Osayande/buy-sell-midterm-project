@@ -19,7 +19,6 @@ exports.getAllFeatures = getAllFeatures;
 
 const getAllItems = (db, options) => {
   const queryParams = [];
-
   let queryString = `SELECT products.*, users.username
   FROM products
   JOIN users ON users.id = user_id
@@ -36,9 +35,7 @@ const getAllItems = (db, options) => {
     queryParams.push(Number(options.min_price))
     queryString += ` WHERE products.price > $${queryParams.length}`;
   }
-
   queryString += ` ORDER BY products DESC;`
-
   return db.query(queryString, queryParams)
   .then(res => {
     return res.rows
