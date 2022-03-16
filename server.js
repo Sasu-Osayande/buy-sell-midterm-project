@@ -8,6 +8,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const cookieSession = require('cookie-session');
+const socket = require('./socket.js')
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -54,6 +55,10 @@ app.use("/shop", productRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.listen(PORT, () => {
+const http = app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+socket.listen(http)
+
+
