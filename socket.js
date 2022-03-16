@@ -9,10 +9,10 @@ const listen = function(http) {
       console.log("Disconnected!", client.id)
     })
 
-    client.on('privatemsg', (data) => {
+    client.on('private', (data) => {
       console.log(data)
-      client.emit('private', `you sent: ${data}`)
-      server.emit('private', `someone sent: ${data}`)
+      client.emit('private', `you sent: ${data}`);
+      // server.emit('private', `someone sent: ${data}`)
     })
 
 

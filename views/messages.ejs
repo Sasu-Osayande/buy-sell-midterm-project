@@ -35,12 +35,14 @@
     <div id="msg-top-border"></div>
   </div>
 
-  <div class="messages-container"></div>
+  <div class="messages-container">
+    <h1></h1>
+  </div>
 
   <div id="msg-bottom-border"></div>
   <div class="messages-bottom">
     <input id="msg-input" type="text" placeholder="Is this product still available?">
-    <button id="send-msg-btn" type="submit" style="width:150px;">Send Message</button>
+    <button id="send-msg-btn" onclick="socket.emit('private', 'hey, it worked!')" type="submit" style="width:150px;">Send Message</button>
   </div>
 </div>
 
