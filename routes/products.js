@@ -109,5 +109,16 @@ module.exports = (db) => {
     const username = req.session.username
     res.render("myshop", {username});
     });
+
+    router.get("/messages", (req, res) => {
+      const username = req.session.username;
+      res.render("messages", {username});
+    });
+
+    // router.post("/messages", (req, res) => {
+    //   // const username = req.session.username;
+    //   res.redirect("/shop/messages");
+    // });
+
   return router;
 };
