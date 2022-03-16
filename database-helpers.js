@@ -15,28 +15,23 @@ const getAllFeatures = (db, limit = 8) => {
       console.log(err.message);
     });
 };
-
 exports.getAllFeatures = getAllFeatures;
 
 const getAllItems = (db, options) => {
-
   const queryParams = [];
 
   let queryString = `SELECT products.*, users.username
   FROM products
   JOIN users ON users.id = user_id
   `
-
   if (options.min_price && options.max_price) {
     queryParams.push(Number(options.min_price), Number(options.max_price))
     queryString += ` WHERE products.price > $${queryParams.length - 1} AND products.price < $${queryParams.length}`;
   }
-
   if (!options.min_price && options.max_price) {
     queryParams.push(Number(options.max_price))
     queryString += ` WHERE products.price < $${queryParams.length}`;
   }
-
   if (options.min_price && !options.max_price) {
     queryParams.push(Number(options.min_price))
     queryString += ` WHERE products.price > $${queryParams.length}`;
@@ -48,13 +43,10 @@ const getAllItems = (db, options) => {
   .then(res => {
     return res.rows
   });
-
 };
-
 exports.getAllItems = getAllItems;
 
 const insertFavItem = (db, productID, userID) => {
-
   return db
   .query(
     `
@@ -69,13 +61,10 @@ const insertFavItem = (db, productID, userID) => {
   .catch((err) => {
     console.log(err.message);
   });
-
 }
-
 exports.insertFavItem = insertFavItem;
 
 const deleteFavItem = (db, productID, userID) => {
-
   return db
   .query(
     `
@@ -90,13 +79,10 @@ const deleteFavItem = (db, productID, userID) => {
   .catch((err) => {
     console.log(err.message);
   });
-
 }
-
 exports.deleteFavItem = deleteFavItem;
 
 const getAllFavsForUser = (db, userID) => {
-
   return db
     .query(
       `SELECT favourites.*, products.*, users.username
@@ -114,9 +100,7 @@ const getAllFavsForUser = (db, userID) => {
     .catch((err) => {
       console.log(err.message);
     });
-
 }
-
 exports.getAllFavsForUser = getAllFavsForUser;
 
 

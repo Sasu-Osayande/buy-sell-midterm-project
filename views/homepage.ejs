@@ -23,19 +23,14 @@
   <%- include('partials/header') %>
 <div class="top-homepage">
   <img class="banner" src="https://media-exp1.licdn.com/dms/image/C4D1BAQGRUPPOfK9KfQ/company-background_10000/0/1625576064677?e=2147483647&v=beta&t=t8kKhNIMg5HLZ2N4ikml2STQVa8R6RjqQUscdBx5PJg">
-
   <p id="tagline">Find fine jewellery for less sold by sellers in your area!</p>
-
   <div id="home-shop-all-button">
     <form action="/shop/all-items" method="GET">
       <button type="submit">Shop All Jewellery</button>
       </form>
   </div>
-
   <p><h1 id="homepage-text">Featured Items</h1></p>
-
 </div>
-
 <section class="features-container">
   <div>
     <% for (let image in images) { %>
@@ -43,7 +38,6 @@
     <% } %>
   </div>
 </section>
-
 
      <!-- Bootstrap JS -->
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -20,12 +20,8 @@ module.exports = (db) => {
       .then(data => {
         const result = data.rows[0].username
         req.session.username = result
-
         const userId = data.rows[0].id
         req.session.userId = userId
-
-        console.log("User Id", userId)
-
         res.redirect("/shop");
       })
       .catch(err => {
