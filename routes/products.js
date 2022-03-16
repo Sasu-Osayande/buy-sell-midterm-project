@@ -84,6 +84,7 @@ module.exports = (db) => {
     .then((myProducts) => {
       myProducts = myProducts.rows;
       console.log("Products:", myProducts)
+      res.redirect("/shop/myshop");
       res.render("myshop", {myProducts, username});
     })
     .catch((err) => {
