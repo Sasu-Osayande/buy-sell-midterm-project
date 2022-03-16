@@ -61,7 +61,9 @@
           <span id="clickable-heart" style='cursor:pointer; <%= products[product].favourite ? "color:#ba1f3b" : "color:#000000" %>'>
             <i class="fa-solid fa-heart heart-icon" data-fav= '<%= products[product].favourite ? true : false %>' ></i>
           </span>
+      <form action="/shop/messages" method="GET">
         <button type="submit" style="width:150px;">Message Seller</button>
+      </form>
       </div>
     <% } %>
   </div>
