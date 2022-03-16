@@ -74,6 +74,27 @@ const insertFavItem = (db, productID, userID) => {
 
 exports.insertFavItem = insertFavItem;
 
+const deleteFavItem = (db, productID, userID) => {
+
+  return db
+  .query(
+    `
+  DELETE FROM favourites WHERE product_id = $1 AND user_id = $2
+  RETURNING *;
+  `,
+    [productID, userID]
+  )
+  .then((result) => {
+    return result.rows[0];
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+
+}
+
+exports.deleteFavItem = deleteFavItem;
+
 const getAllFavsForUser = (db, userID) => {
 
   return db

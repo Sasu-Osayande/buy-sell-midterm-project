@@ -3,23 +3,35 @@ $(document).ready(function() {
   const heartIcon = (".heart-icon")
 
   $(heartIcon).on("click",function() {
+    //id of product
+    let productID = $(this).parents('.item-info').find('#product-id')[0].innerHTML
 
-      //changes colour of heart to red
+    //if on click the css color is red
+    if ($(this).attr('data-fav') === "false") {
+
       $(this).css('color','#ba1f3b')
+      $(this).attr('data-fav', "true")
 
-      console.log($(this).css('color'))
-
-      //id of product
-      let productID = $(this).parents('.item-info').find('#product-id')[0].innerHTML
-
-      // send ajax post request with product id
       $.ajax({
         method: "POST",
-        url: `/shop/favourites/${productID}`,
+        url: `/shop/favourites/${productID}`
       })
 
+    } else {
+
+    // if on click the css color is black
+      $(this).css('color', '#000000')
+      $(this).attr('data-fav', "false")
+
+      $.ajax({
+        method: "POST",
+        url: `/shop/favourites/delete/${productID}`
+      })
+    }
 
   })
+
+
 
 
 

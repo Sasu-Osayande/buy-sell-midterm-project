@@ -1,6 +1,6 @@
 const express = require("express");
 const { options } = require("pg/lib/defaults");
-const {getAllFeatures, getAllItems, insertFavItem, getAllFavsForUser} = require("../database-helpers");
+const {getAllFeatures, getAllItems, insertFavItem, getAllFavsForUser, deleteFavItem} = require("../database-helpers");
 const router = express.Router();
 
 module.exports = (db) => {
@@ -18,9 +18,7 @@ module.exports = (db) => {
   router.get("/all-items", (req, res) => {
     const username = req.session.username;
     const userID = req.session.userId;
-
     const promiseOne = getAllItems(db, req.url)
-
     const promiseTwo = getAllFavsForUser(db, userID)
 
 
@@ -40,25 +38,7 @@ module.exports = (db) => {
       res.render("shop", {products, username});
     });
 
-      // .then((products) => {
-      //   res.render("shop", {products, username});
-      // })
-      // .catch((err) => {
-      //   res.status(500).json({ error: err.message });
-      // });
   });
-
-  // router.get("/all-items", (req, res) => {
-  //   const username = req.session.username;
-
-  //   getAllItems(db, req.url)
-  //     .then((products) => {
-  //       res.render("shop", {products, username});
-  //     })
-  //     .catch((err) => {
-  //       res.status(500).json({ error: err.message });
-  //     });
-  // });
 
   router.post("/all-items/filtered", (req, res) => {
     const options = req.body
@@ -71,7 +51,6 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
-
 
   router.get("/favourites", (req, res) => {
     const username = req.session.username
@@ -93,6 +72,22 @@ module.exports = (db) => {
     const productId = req.params.id;
 
     insertFavItem(db, productId, userId)
+    .then(item => {
+      res.send(item);
+    })
+    .catch(e => {
+      console.error(e);
+      res.send(e)
+    });
+
+  });
+
+  router.post("/favourites/delete/:id", (req, res) => {
+
+    const userId = req.session.userId;
+    const productId = req.params.id;
+
+    deleteFavItem(db, productId, userId)
     .then(item => {
       res.send(item);
     })
