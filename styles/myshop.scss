@@ -108,7 +108,6 @@ footer {
   border: 0.1em solid black;
   margin-right: 1em;
   margin-bottom: 2em;
-  position: absolute;
 }
 
 .sold-item-container-my-shop {
@@ -118,7 +117,7 @@ footer {
 .item-info {
   display: flex;
   flex-direction: column;
-  margin-right: 2em;
+  margin-right: 1em;
   width: 12em;
 }
 
@@ -129,7 +128,7 @@ footer {
 
   float: right;
   overflow: visible;
-  position: relative;
+  position: absolute;
   height: 14em;
   width: 14em;
 }
@@ -142,3 +141,7 @@ footer {
   margin-bottom: 2em;
 }
 
+#sold-container {
+  display: flex;
+  flex-direction: row;
+}

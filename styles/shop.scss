@@ -46,19 +46,17 @@
   border: 0.1em solid black;
   margin-right: 1em;
   margin-bottom: 2em;
-  position: absolute;
-}
-
-.item-container-shop {
-  height: 14em;
-  width: 14em;
-  border: 0.1em solid black;
-  margin-right: 1em;
-  margin-bottom: 2em;
 }
 
 .sold-item-container-shop {
   z-index: 10;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1em;
+  width: 12em;
 }
 
 .sold-img {
@@ -68,13 +66,15 @@
 
   float: right;
   overflow: visible;
-  position: relative;
+  position: absolute;
   height: 14em;
   width: 14em;
 }
 
-.item-info {
-  display: flex;
-  flex-direction: column;
-  margin-right: 2em;
+.item-container-shop {
+  height: 14em;
+  width: 14em;
+  border: 0.1em solid black;
+  margin-right: 1em;
+  margin-bottom: 2em;
 }
