@@ -37,20 +37,39 @@ module.exports = (db) => {
 
       res.render("shop", {products, username});
     });
-
   });
 
   router.post("/all-items/filtered", (req, res) => {
-    const options = req.body
-    getAllItems(db, options)
-      .then((products) => {
-        const username = req.session.username
-        res.render("shop", {products, username});
+    const username = req.session.username;
+    const userID = req.session.userId;
+    const options = req.body;
+    const promiseOne = getAllItems(db, options)
+    const promiseTwo = getAllFavsForUser(db, userID)
+
+
+    Promise.all([promiseOne, promiseTwo]).then((values) => {
+      const productsArray = values[0]
+      const favourites = values[1]
+      const products = productsArray.map(product => {
+       const favouriteProduct = favourites.find(elem => elem.id === product.id)
+        if (favouriteProduct) {
+          product.favourite = true;
+        }
+        return product;
       })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
+      res.render("shop", {products, username});
+    });
   });
+
+  // const options = req.body
+  // const username = req.session.username
+  // getAllItems(db, options)
+  //   .then((products) => {
+  //     res.render("shop", {products, username});
+  //   })
+  //   .catch((err) => {
+  //     res.status(500).json({ error: err.message });
+  //   });
 
   router.get("/favourites", (req, res) => {
     const username = req.session.username
@@ -63,7 +82,6 @@ module.exports = (db) => {
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
-
   });
 
   router.post("/favourites/:id", (req, res) => {
@@ -95,13 +113,11 @@ module.exports = (db) => {
       console.error(e);
       res.send(e)
     });
-
   });
 
   router.get("/myshop", (req, res) => {
     const username = req.session.username
     res.render("myshop", {username});
-  });
-
+    });
   return router;
 };
