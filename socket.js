@@ -1,4 +1,5 @@
 const socketio = require("socket.io")
+const users = {};
 
 const listen = function(http) {
   const server = socketio(http);
@@ -11,11 +12,19 @@ const listen = function(http) {
 
     client.on('private', (data) => {
       console.log(data)
-      client.emit('private', `you sent: ${data}`);
-      // server.emit('private', `someone sent: ${data}`)
+      const id = users[data.to]
+      const from = data.from
+      const text = data.text
+      console.log("ID", id)
+      console.log("From", from)
+      console.log("text", text)
+      server.to(id).emit('private', {from, text});
     })
 
-
+    client.on('id', (data) => {
+      users[data] = client.id
+      console.log(users)
+    })
   })
 }
 

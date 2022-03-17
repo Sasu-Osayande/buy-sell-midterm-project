@@ -31,18 +31,22 @@
 
 <div>
   <div class="messages-top">
-    <h3 id="seller-username">Alice</h3>
+    <h3 id="seller-username"></h3>
     <div id="msg-top-border"></div>
   </div>
 
   <div class="messages-container">
-    <h1></h1>
+    <ul id ="messages">
+
+    </ul>
   </div>
 
   <div id="msg-bottom-border"></div>
   <div class="messages-bottom">
-    <input id="msg-input" type="text" placeholder="Is this product still available?">
-    <button id="send-msg-btn" onclick="socket.emit('private', 'hey, it worked!')" type="submit" style="width:150px;">Send Message</button>
+    <input id="msg-input" type="text" placeholder="Is this product still available?"/>
+    <input id="msg_to" type="hidden" value="<%=to%>" />
+    <input id="msg_from" type="hidden" value="<%=username%>" />
+    <button id="send-msg-btn" type="submit" style="width:150px;">Send Message</button>
   </div>
 </div>
 
