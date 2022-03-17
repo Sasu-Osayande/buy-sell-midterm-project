@@ -4,8 +4,9 @@ const getAllFeatures = (db, limit = 8) => {
   return db
     .query(
       `
-    SELECT image_url
+    SELECT image_url, id
     FROM products
+    ORDER BY id DESC
     LIMIT $1;
     `,
       [limit]
