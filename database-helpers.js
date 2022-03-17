@@ -1,6 +1,6 @@
 const users = require("./routes/users");
 
-const getAllFeatures = (db, limit = 8) => {
+const getAllFeatures = (db, limit = 4) => {
   return db
     .query(
       `
