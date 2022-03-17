@@ -56,6 +56,16 @@
   width: 14em;
 }
 
+.items-fav-page {
+  display: flex;
+  justify-content: center;
+}
+
+.nofav-text-placeholder {
+  color: #c3bfbf;
+  font-style: italic;
+}
+
 footer {
   margin-top: auto;
 }
