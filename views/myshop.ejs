@@ -80,7 +80,7 @@
 
 </div>
 
-<div class="myshop-header">
+<div class="myitems-header">
   <p><h1 id="my-items-text">My Items</h1></p>
 </div>
 
@@ -110,7 +110,7 @@
           <b>PRICE:</b> $<%= myProducts[product].price %>
         </div>
         <div class="product-description">
-          <b>DESCRIPTION:</b> <%= myProducts[product].description %>
+          <b>DESCRIPTION:</b> <span style="font-size:13px;"><%= myProducts[product].description %></span>
         </div>
         <form action="/shop/myshop/<%= myProducts[product].id %>/sold" method="POST">
         <button id="mark-as-sold" type="submit" style="width:150px;">Mark As Sold</button>

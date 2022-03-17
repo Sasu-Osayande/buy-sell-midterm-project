@@ -7,7 +7,7 @@
 .myshop-header {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 50px;
 }
 
 footer {
@@ -22,6 +22,7 @@ footer {
   margin-right: 9em;
   margin-top: 3em;
   margin-bottom: 7em;
+  width: 50%;
 }
 
 #title-box,
@@ -58,10 +59,12 @@ footer {
 }
 
 #post-item-btn {
-  margin-top: 1em;
-  margin-left: 65em;
-  margin-bottom: 25px;
+  margin-left: 0px;
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
   margin-right: 25px;
+  margin-bottom: 25px;
 }
 
 #title-input,
@@ -74,7 +77,6 @@ footer {
 }
 
 #my-shop-textarea {
-  // width: 260%;
   margin-right: 25px;
 }
 
@@ -143,4 +145,15 @@ footer {
 #sold-container {
   display: flex;
   flex-direction: row;
+}
+
+#my-shop-page {
+  display: flex;
+  justify-content: center;
+}
+
+.myitems-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
