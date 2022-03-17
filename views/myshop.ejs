@@ -29,7 +29,99 @@
 <div class="myshop-header">
   <p><h1 id="shop-text">Post Item</h1></p>
 </div>
+<form id="my-shop-page" action="/shop/myshop" method="POST">
+<div class="input-titles">
+  <div id="title-input">
+    <div id="title-box">
+      <span>
+        Title
+      </span>
+    </div>
+    <div>
+      <input id="my-shop-textarea" name="title" rows="1"></input>
+    </div>
+  </div>
 
+  <div id="description-input">
+    <div id="description-box">
+      <span>
+        Description
+      </span>
+    </div>
+    <div>
+      <input id="my-shop-textarea" name="description" rows="1"></input>
+    </div>
+  </div>
+
+  <div id="image-url-input">
+    <div id="image-url-box">
+      <span>
+        Image URL
+      </span>
+    </div>
+    <div>
+      <input id="my-shop-textarea" name="image_url" rows="1"></input>
+    </div>
+  </div>
+
+  <div id="price-input">
+    <div id="price-box">
+      <span>
+        Price
+      </span>
+    </div>
+    <div>
+      <input id="my-shop-textarea" name="price" rows="1"></input>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-outline-secondary" id="post-item-btn" style="margin-top: 1em;">Submit</button>
+</form>
+
+</div>
+
+<div class="myshop-header">
+  <p><h1 id="my-items-text">My Items</h1></p>
+</div>
+
+<section class="items-my-shop-page">
+  <div class = "inside-items-my-shop-page">
+    <% for (let product in myProducts) { %>
+    <div id="sold-container">
+      <% if (myProducts[product].is_sold === true) { %>
+      <div class="sold-popup">
+        <img class="sold-img" src="https://down.imgspng.com/thumb.php?src=https://down.imgspng.com/download/0720/sold_out_PNG91.png&h=200&w=200&zc=1">
+      </div>
+      <div>
+        <img class="sold-item-container-my-shop" src="<%= myProducts[product].image_url %>">
+      </div>
+      <% } else { %>
+    <div>
+        <img class="item-container-my-shop" src="<%= myProducts[product].image_url %>">
+      </div>
+      <% } %>
+    </div>
+
+      <div class = "item-info">
+        <div>
+          <b>TITLE:</b> <%= myProducts[product].title %>
+        </div>
+        <div>
+          <b>PRICE:</b> $<%= myProducts[product].price %>
+        </div>
+        <div class="product-description">
+          <b>DESCRIPTION:</b> <%= myProducts[product].description %>
+        </div>
+        <form action="/shop/myshop/<%= myProducts[product].id %>/sold" method="POST">
+        <button id="mark-as-sold" type="submit" style="width:150px;">Mark As Sold</button>
+      </form>
+      <form action="/shop/myshop/<%= myProducts[product].id %>/delete" method="POST">
+        <button type="submit" style="width:150px;">Delete</button>
+      </form>
+      </div>
+    <% } %>
+  </div>
+</section>
 
      <!-- Bootstrap JS -->
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

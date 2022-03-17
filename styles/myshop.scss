@@ -13,3 +13,135 @@
 footer {
   margin-top: auto;
 }
+
+.input-titles {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  margin-left: 9em;
+  margin-right: 9em;
+  margin-top: 3em;
+  margin-bottom: 7em;
+}
+
+#title-box,
+#description-box,
+#image-url-box,
+#price-box {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 10em;
+  margin: 25px;
+}
+
+#title-box {
+  padding-right: 48px;
+  padding-left: 48px;
+}
+
+#description-box {
+  padding-right: 17px;
+  padding-left: 17px;
+}
+
+#image-url-box {
+  padding-right: 25.7px;
+  padding-left: 25.7px;
+}
+
+#price-box {
+  padding-right: 46.5px;
+  padding-left: 46.5px;
+}
+
+#post-item-btn {
+  margin-top: 1em;
+  margin-left: 65em;
+  margin-bottom: 25px;
+  margin-right: 25px;
+}
+
+#title-input,
+#description-input,
+#image-url-input,
+#price-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+#my-shop-textarea {
+  width: 56em;
+  margin-right: 25px;
+}
+
+#my-shop-textarea {
+  font-family: "Poppins", sans-serif;
+}
+
+.items-my-shop-page {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.inside-items-my-shop-page {
+  margin: 3em;
+  margin-top: 2px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.sold-container {
+  position: relative;
+}
+
+.sold-item-container-my-shop,
+.sold-img {
+  height: 14em;
+  width: 14em;
+  border: 0.1em solid black;
+  margin-right: 1em;
+  margin-bottom: 2em;
+}
+
+.sold-item-container-my-shop {
+  z-index: 10;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1em;
+  width: 12em;
+}
+
+.sold-img {
+  background-color: rgb(203, 199, 199);
+  opacity: 80%;
+  z-index: 100;
+
+  float: right;
+  overflow: visible;
+  position: absolute;
+  height: 14em;
+  width: 14em;
+}
+
+.item-container-my-shop {
+  height: 14em;
+  width: 14em;
+  border: 0.1em solid black;
+  margin-right: 1em;
+  margin-bottom: 2em;
+}
+
+#sold-container {
+  display: flex;
+  flex-direction: row;
+}

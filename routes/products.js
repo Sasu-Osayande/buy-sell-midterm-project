@@ -1,6 +1,8 @@
 const express = require("express");
+// DOUBLE CHECK THIS LATER
 const { options } = require("pg/lib/defaults");
-const {getAllFeatures, getAllItems, insertFavItem, getAllFavsForUser, deleteFavItem} = require("../database-helpers");
+const {getAllFeatures, getAllItems, getMyItems, addItem, deleteItem, soldItem, insertFavItem, getAllFavsForUser, deleteFavItem} = require("../database-helpers");
+
 const router = express.Router();
 
 module.exports = (db) => {
@@ -107,7 +109,68 @@ module.exports = (db) => {
 
   router.get("/myshop", (req, res) => {
     const username = req.session.username
-    res.render("myshop", {username});
+    console.log("Username", username)
+    console.log("Cookie", req.session)
+    // const queryString = `
+    // SELECT products.id, products.title, products.description, products.image_url, products.price, products.is_sold, users.id as userid, users.username
+    // FROM products
+    // JOIN users ON users.id = user_id
+    // WHERE users.username = '${username}'
+    // ORDER BY products DESC;
+    // `;
+    // db.query(queryString)
+      getMyItems(db, username)
+      .then((myProducts) => {
+        // console.log("My Products:", myProducts.rows);
+        // myProducts = myProducts.rows;
+        res.render("myshop", { myProducts, username });
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
+  router.post("/myshop", (req, res) => {
+    const username = req.session.username
+    const userID = req.session.id;
+
+    const product = req.body;
+
+    addItem(db, product, userID)
+    .then((myProducts) => {
+      myProducts = myProducts.rows;
+      // console.log("Products:", myProducts)
+      res.redirect("/shop/myshop");
+      res.render("myshop", {myProducts, username});
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
     });
+  });
+
+  router.post("/myshop/:id/delete", (req, res) => {
+    const id = req.params.id;
+
+    deleteItem(db, id)
+      .then((data) => {
+        res.redirect("/shop/myshop");
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
+  router.post("/myshop/:id/sold", (req, res) => {
+    const id = req.params.id;
+
+    soldItem(db, id)
+      .then((data) => {
+        res.redirect("/shop/myshop");
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  })
+
   return router;
 };
