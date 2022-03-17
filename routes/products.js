@@ -146,6 +146,7 @@ module.exports = (db) => {
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
+
   });
 
   router.post("/myshop/:id/delete", (req, res) => {
@@ -171,6 +172,18 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   })
+
+  router.get("/messages/:to", (req, res) => {
+    const to = req.params.to;
+    const username = req.session.username;
+    res.render("messages", {username, to});
+  });
+
+    // router.get("/messages/", (req, res) => {
+    //   const to = req.params.to;
+    //   const username = req.session.username;
+    //   res.render("messages", {username, to});
+    // });
 
   return router;
 };
