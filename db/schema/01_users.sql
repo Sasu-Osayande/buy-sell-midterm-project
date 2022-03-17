@@ -16,6 +16,7 @@ CREATE TABLE products (
   price INTEGER,
   is_sold BOOLEAN NOT NULL DEFAULT FALSE,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+  ORDER BY DESC;
 );
 
 CREATE TABLE favourites (
