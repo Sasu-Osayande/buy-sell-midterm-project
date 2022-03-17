@@ -1,0 +1,74 @@
+.messages-body-shop {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.my-messages-page {
+  border: 2px solid black;
+  margin-left: 10em;
+  height: 25em;
+  margin-right: 10em;
+  margin-bottom: 10em;
+  padding-bottom: 1em;
+}
+
+.messages-top h3 {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1em;
+}
+
+.messages-container {
+  height: 15em;
+}
+
+#msg-top-border {
+  border-top: 3px solid black;
+}
+
+.messages-bottom {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+#msg-input {
+  margin-right: 1em;
+  width: 57em;
+}
+
+#msg-bottom-border {
+  border-top: 3px solid black;
+}
+
+.received {
+  color: white;
+  background-color: rgb(200, 144, 69);
+  display: flex;
+  justify-content: flex-start;
+  width: 80%;
+}
+
+.sent {
+  color: white;
+  background-color: rgb(60, 85, 52);
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 20%;
+}
+
+footer {
+  margin-top: auto;
+}
+
+#msg-name {
+  color: rgb(184, 150, 107);
+}
