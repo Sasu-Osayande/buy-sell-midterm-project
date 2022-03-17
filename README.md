@@ -41,3 +41,12 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- CHALK 2.4.2
+- COOKIE-SESSION 2.0.0
+- DOTENV 2.0.0
+- EJS 2.6.2
+- EXPRESS 4.17.1
+- JQUERY 3.6.0
+- MORGAN 1.9.1
+- SASS 1.35.1
+- SOCKET.IO 4.4.1
