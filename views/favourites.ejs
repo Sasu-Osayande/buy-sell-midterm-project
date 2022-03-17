@@ -29,6 +29,10 @@
 <!-- Section for New Favourite Items -->
 <section class="items-fav-page">
 
+  <% if (favs.length === 0) {%>
+  <h4 class= "nofav-text-placeholder">Your personal shopping list! Save items by "liking" so you can shop them later!❤️</h4>
+  <% } else { %>
+
   <div class = "inside-favshop-page">
     <% for (let fav in favs) { %>
       <% if (favs[fav].is_sold === true) { %>
@@ -38,7 +42,6 @@
             <img class="fav-container-shop" src="<%= favs[fav].image_url %>">
             </div>
         </div>
-
 
     <% } else { %>
       <div>
@@ -62,8 +65,7 @@
       </div>
     <% } %>
   </div>
-
-
+<% } %>
 </section>
 
      <!-- Bootstrap JS -->

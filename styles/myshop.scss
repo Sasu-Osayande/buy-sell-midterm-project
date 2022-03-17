@@ -76,8 +76,8 @@ footer {
   flex-direction: row;
 }
 
-#my-shop-textarea {
-  margin-right: 25px;
+.my-shop-textarea {
+  width:100%;
 }
 
 #my-shop-textarea {
@@ -156,4 +156,9 @@ footer {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+}
+
+.input-cont {
+  flex: 1;
+  padding-right: 25px;
 }

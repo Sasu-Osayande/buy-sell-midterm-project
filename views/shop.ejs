@@ -66,8 +66,9 @@
         <div>
           <b>SELLER:</b> <%= products[product].username %>
         </div>
-        <div>
-          <b>DESCRIPTION:</b> <span class="shop-description-txt"><%= products[product].description %></span>
+        <div class="entire-description-box">
+          <b>DESCRIPTION:</b> <span class="shop-description-txt"> <%= products[product].description.length > 43 ? products[product].description.substring(0,42) + "..." : products[product].description%></span>
+          <span class="shop-full-description" style="display:none;"> <%= products[product].description%> </span>
         </div>
 
         <p id= "product-id"><%= products[product].id%></p>
