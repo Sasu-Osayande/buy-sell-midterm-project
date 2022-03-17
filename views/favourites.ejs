@@ -31,11 +31,20 @@
 
   <div class = "inside-favshop-page">
     <% for (let fav in favs) { %>
+      <% if (favs[fav].is_sold === true) { %>
+        <div class="sold-popup">
+          <img class="sold-img" src="https://down.imgspng.com/thumb.php?src=https://down.imgspng.com/download/0720/sold_out_PNG91.png&h=200&w=200&zc=1">
+          <div>
+            <img class="fav-container-shop" src="<%= favs[fav].image_url %>">
+            </div>
+        </div>
 
+
+    <% } else { %>
       <div>
       <img class="fav-container-shop" src="<%= favs[fav].image_url %>">
       </div>
-
+    <% } %>
       <div class = "fav-info">
         <div>
           <b>TITLE:</b> <%= favs[fav].title %> </span>
