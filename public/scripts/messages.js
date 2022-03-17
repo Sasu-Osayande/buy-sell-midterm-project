@@ -7,9 +7,12 @@ $(function() {
     const from = $('#msg_from').val()
     const to = $('#msg_to').val()
     const text = $('#msg-input').val()
-    const element = `<li class="sent"> ${from}: ${text} </li>`
+    const element = `<p class="sent"> ${from}: ${text} </p>`
     $('#messages').append(element)
     sendMessage(from, to, text);
+
+    // clears the message input after a text submission
+    $("#msg-input").val('');
   })
 
   socket.on('connect', () => {
@@ -20,7 +23,7 @@ $(function() {
   socket.on('private', (data) => {
     const from = data.from;
     const text = data.text;
-    const element = `<li class="received"> ${from}: ${text} </li>`
+    const element = `<p class="received"> ${from}: ${text} </p>`
     console.log("Message from", from)
     $('#messages').append(element)
   })

@@ -50,13 +50,25 @@
 }
 
 .received {
-  color: red;
+  color: white;
+  background-color: rgb(200, 144, 69);
+  display: flex;
+  justify-content: flex-start;
+  width: 80%;
 }
 
 .sent {
-  color: blue;
+  color: white;
+  background-color: rgb(60, 85, 52);
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 20%;
 }
 
 footer {
   margin-top: auto;
+}
+
+#msg-name {
+  color: rgb(184, 150, 107);
 }

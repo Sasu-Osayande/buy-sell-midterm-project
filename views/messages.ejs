@@ -23,7 +23,7 @@
   <%- include('partials/header') %>
 
 <div class="messages-header">
-  <p><h1 id="messages-text">Chat with Seller Here!</h1></p>
+  <p><h1 id="messages-text">Chatting With: <span id="msg-name"><%=to%></span></h1></p>
 </div>
 
 <!-- Section for Messages -->
@@ -31,14 +31,14 @@
 
 <div>
   <div class="messages-top">
-    <h3 id="seller-username">Seller: <%=to%></h3>
+    <h3 id="seller-username">Your Messages</h3>
     <div id="msg-top-border"></div>
   </div>
 
   <div class="messages-container">
-    <ul id ="messages">
+    <div id ="messages">
 
-    </ul>
+    </div>
   </div>
 
   <div id="msg-bottom-border"></div>
