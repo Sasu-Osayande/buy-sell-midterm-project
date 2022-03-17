@@ -116,9 +116,10 @@ module.exports = (db) => {
       res.render("messages", {username, to});
     });
 
-    // router.post("/messages", (req, res) => {
-    //   // const username = req.session.username;
-    //   res.redirect("/shop/messages");
+    // router.get("/messages/", (req, res) => {
+    //   const to = req.params.to;
+    //   const username = req.session.username;
+    //   res.render("messages", {username, to});
     // });
 
   return router;

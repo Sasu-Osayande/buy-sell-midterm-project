@@ -1,7 +1,7 @@
 .main-body-shop {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .shop-header {
@@ -54,4 +54,7 @@
   display: none;
 }
 
+footer {
+  margin-top: auto;
+}
 
