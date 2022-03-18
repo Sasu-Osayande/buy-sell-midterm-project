@@ -5,80 +5,74 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
+<!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <title>My Shop</title>
 
-  <!-- Custom Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
+<!-- Custom Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
 
-   <!-- Internal CSS -->
-   <link rel="stylesheet" href="/styles/myshop.css" type="text/css"/>
-
-  <!-- Scripts -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
-
+<!-- Internal CSS -->
+  <link rel="stylesheet" href="/styles/myshop.css" type="text/css"/>
 </head>
 
 <body class ="myshop-body-shop">
   <%- include('partials/header') %>
 
-<div class="myshop-header">
-  <p><h1 id="shop-text">Post Item</h1></p>
-</div>
-<form id="my-shop-page" action="/shop/myshop" method="POST">
-<div class="input-titles">
-  <div id="title-input">
-    <div id="title-box">
-      <span>
-        Title
-      </span>
-    </div>
-    <div class="input-cont">
-      <input class="my-shop-textarea" name="title" rows="1"></input>
-    </div>
+  <div class="myshop-header">
+    <p><h1 id="shop-text">Post Item</h1></p>
   </div>
+  <form id="my-shop-page" action="/shop/myshop" method="POST">
+  <div class="input-titles">
+    <div id="title-input">
+      <div id="title-box">
+        <span>
+          Title
+        </span>
+      </div>
+      <div class="input-cont">
+        <input class="my-shop-textarea" name="title" rows="1"></input>
+      </div>
+    </div>
 
-  <div id="description-input">
-    <div id="description-box">
-      <span>
-        Description
-      </span>
+    <div id="description-input">
+      <div id="description-box">
+        <span>
+          Description
+        </span>
+      </div>
+      <div class="input-cont">
+        <input class="my-shop-textarea" name="description" rows="1"></input>
+      </div>
     </div>
-    <div class="input-cont">
-      <input class="my-shop-textarea" name="description" rows="1"></input>
+
+    <div id="image-url-input">
+      <div id="image-url-box">
+        <span>
+          Image URL
+        </span>
+      </div>
+      <div class="input-cont">
+        <input class="my-shop-textarea" name="image_url" rows="1"></input>
+      </div>
     </div>
+
+    <div id="price-input">
+      <div id="price-box">
+        <span>
+          Price
+        </span>
+      </div>
+      <div class="input-cont">
+        <input class="my-shop-textarea" name="price" rows="1"></input>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-secondary" id="post-item-btn" style="margin-top: 1em;">Submit</button>
+  </form>
   </div>
-
-  <div id="image-url-input">
-    <div id="image-url-box">
-      <span>
-        Image URL
-      </span>
-    </div>
-    <div class="input-cont">
-      <input class="my-shop-textarea" name="image_url" rows="1"></input>
-    </div>
-  </div>
-
-  <div id="price-input">
-    <div id="price-box">
-      <span>
-        Price
-      </span>
-    </div>
-    <div class="input-cont">
-      <input class="my-shop-textarea" name="price" rows="1"></input>
-    </div>
-  </div>
-
-  <button type="submit" class="btn btn-outline-secondary" id="post-item-btn" style="margin-top: 1em;">Submit</button>
-</form>
-
-</div>
 
 <div class="myitems-header">
   <p><h1 id="my-items-text">My Items</h1></p>
@@ -123,11 +117,13 @@
   </div>
 </section>
 
-     <!-- Bootstrap JS -->
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+<!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Scripts -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
 </body>
 <%- include('partials/footer') %>
 </html>

@@ -5,79 +5,76 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
+<!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <title>Favourites</title>
 
-  <!-- Custom Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
+<!-- Custom Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
 
-   <!-- Internal CSS -->
-   <link rel="stylesheet" href="/styles/favourites.css" type="text/css"/>
+<!-- Internal CSS -->
+  <link rel="stylesheet" href="/styles/favourites.css" type="text/css"/>
 
 </head>
 
 <body class ="favs-body-shop">
   <%- include('partials/header') %>
 
-<div class="fav-header">
-  <p><h1 id="shop-text">My Fav Items</h1></p>
-</div>
+  <div class="fav-header">
+    <p><h1 id="shop-text">My Fav Items</h1></p>
+  </div>
 
 <!-- Section for New Favourite Items -->
 <section class="items-fav-page">
 
-  <% if (favs.length === 0) {%>
-<div class="nofav-text">
-  <h4 class= "nofav-text-placeholder">Your personal shopping list! Save items by "liking" so you can shop them later!❤️</h4>
-</div>
-  <% } else { %>
-
-  <div class = "inside-favshop-page">
-    <% for (let fav in favs) { %>
-      <% if (favs[fav].is_sold === true) { %>
-        <div class="sold-popup">
-          <img class="sold-img" src="https://down.imgspng.com/thumb.php?src=https://down.imgspng.com/download/0720/sold_out_PNG91.png&h=200&w=200&zc=1">
-          <div>
-            <img class="fav-container-shop" src="<%= favs[fav].image_url %>">
-            </div>
-        </div>
-
-    <% } else { %>
-      <div>
-      <img class="fav-container-shop" src="<%= favs[fav].image_url %>">
-      </div>
-    <% } %>
-      <div class = "fav-info">
-        <div>
-          <b>TITLE:</b> <%= favs[fav].title %> </span>
-        </div>
-        <div>
-          <b>PRICE:</b> $<%= favs[fav].price %>
-        </div>
-        <div>
-          <b>SELLER:</b> <%= favs[fav].username %>
-        </div>
-
-          <span id="clickable-heart" style="cursor:pointer"><i class="fa-solid fa-heart fav-heart-icon" ></i>
-          </span>
-        <button type="submit" style="width:150px;">Message Seller</button>
-      </div>
-    <% } %>
+    <% if (favs.length === 0) {%>
+  <div class="nofav-text">
+    <h4 class= "nofav-text-placeholder">Your personal shopping list! Save items by "liking" so you can shop them later!❤️</h4>
   </div>
-<% } %>
+    <% } else { %>
+    <div class = "inside-favshop-page">
+      <% for (let fav in favs) { %>
+        <% if (favs[fav].is_sold === true) { %>
+          <div class="sold-popup">
+            <img class="sold-img" src="https://down.imgspng.com/thumb.php?src=https://down.imgspng.com/download/0720/sold_out_PNG91.png&h=200&w=200&zc=1">
+            <div>
+              <img class="fav-container-shop" src="<%= favs[fav].image_url %>">
+              </div>
+          </div>
+      <% } else { %>
+        <div>
+        <img class="fav-container-shop" src="<%= favs[fav].image_url %>">
+        </div>
+      <% } %>
+        <div class = "fav-info">
+          <div>
+            <b>TITLE:</b> <%= favs[fav].title %> </span>
+          </div>
+          <div>
+            <b>PRICE:</b> $<%= favs[fav].price %>
+          </div>
+          <div>
+            <b>SELLER:</b> <%= favs[fav].username %>
+          </div>
+            <span id="clickable-heart" style="cursor:pointer"><i class="fa-solid fa-heart fav-heart-icon" ></i>
+            </span>
+          <button type="submit" style="width:150px;">Message Seller</button>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
 </section>
 
-     <!-- Bootstrap JS -->
+<!-- Bootstrap JS -->
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-   <!-- Scripts -->
-   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-   <script type="text/javascript" src="/scripts/favourites.js"></script>
+ <!-- Scripts -->
+ <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+ <script type="text/javascript" src="/scripts/favourites.js"></script>
 
 </body>
 <%- include('partials/footer') %>

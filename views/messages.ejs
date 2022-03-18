@@ -5,19 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
+<!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <title>Messages</title>
 
-  <!-- Custom Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
+<!-- Custom Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
 
-   <!-- Internal CSS -->
-   <link rel="stylesheet" href="/styles/messages.css" type="text/css"/>
-
+<!-- Internal CSS -->
+  <link rel="stylesheet" href="/styles/messages.css" type="text/css"/>
 </head>
+
 
 <body class ="messages-body-shop">
   <%- include('partials/header') %>
@@ -26,43 +26,39 @@
   <p><h1 id="messages-text">Chatting With: <span id="msg-name"><%=to%></span></h1></p>
 </div>
 
-<!-- Section for Messages -->
 <section class="my-messages-page">
+  <div>
+    <div class="messages-top">
+      <h3 id="seller-username">Your Messages</h3>
+      <div id="msg-top-border"></div>
+    </div>
 
-<div>
-  <div class="messages-top">
-    <h3 id="seller-username">Your Messages</h3>
-    <div id="msg-top-border"></div>
-  </div>
+    <div class="messages-container">
+      <div id ="messages">
 
-  <div class="messages-container">
-    <div id ="messages">
+      </div>
+    </div>
 
+    <div id="msg-bottom-border"></div>
+    <div class="messages-bottom">
+      <input id="msg-input" type="text" placeholder="Is this product still available?"/>
+      <input id="msg_to" type="hidden" value="<%=to%>" />
+      <input id="msg_from" type="hidden" value="<%=username%>" />
+      <button id="send-msg-btn" type="submit" style="width:150px;">Send</button>
     </div>
   </div>
-
-  <div id="msg-bottom-border"></div>
-  <div class="messages-bottom">
-    <input id="msg-input" type="text" placeholder="Is this product still available?"/>
-    <input id="msg_to" type="hidden" value="<%=to%>" />
-    <input id="msg_from" type="hidden" value="<%=username%>" />
-    <button id="send-msg-btn" type="submit" style="width:150px;">Send</button>
-  </div>
-</div>
-
 </section>
 
-     <!-- Bootstrap JS -->
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-   <!-- Scripts -->
-   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-   <script type="text/javascript" src="/scripts/favourites.js"></script>
-   <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"> </script>
-   <script type="text/javascript" src="/scripts/messages.js"></script>
-
+  <!-- Scripts -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/favourites.js"></script>
+  <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"> </script>
+  <script type="text/javascript" src="/scripts/messages.js"></script>
 </body>
 <%- include('partials/footer') %>
 </html>

@@ -5,95 +5,94 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
+<!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <title>Shop All</title>
 
-  <!-- Custom Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
+<!-- Custom Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
 
-   <!-- Internal CSS -->
-   <link rel="stylesheet" href="/styles/shop.css" type="text/css"/>
+<!-- Internal CSS -->
+  <link rel="stylesheet" href="/styles/shop.css" type="text/css"/>
 </head>
 
 <body class ="main-body-shop">
   <%- include('partials/header') %>
 
-<div class = "fil-by-price-cont">
-  <form action="/shop/all-items/filtered" method="POST">
-    <button type="submit" style="width:304px;">Filter by Price</button>
+  <div class = "fil-by-price-cont">
+    <form action="/shop/all-items/filtered" method="POST">
+      <button type="submit" style="width:304px;">Filter by Price</button>
 
-    <div class = "max-min-input">
-      <input class="min-price" type="text" name="min_price" placeholder="Min. price" style="width: 150px; margin: 0; margin-bottom: 1em;">
+      <div class = "max-min-input">
+        <input class="min-price" type="text" name="min_price" placeholder="Min. price" style="width: 150px; margin: 0; margin-bottom: 1em;">
 
-      <input class="max-price" type="text" name="max_price" placeholder="Max. price" style="width: 150px; margin: 0; margin-bottom: 1em;">
-    </div>
-  </form>
-</div>
-
-<div class="shop-header">
-  <p><h1 id="shop-text">Shop All Items</h1></p>
-</div>
-
-<section class="items-shop-page">
-  <div class = "inside-itemsshop-page">
-    <% for (let product in products) { %>
-
-      <div id="sold-container">
-        <% if (products[product].is_sold === true) { %>
-        <div class="sold-popup">
-          <img class="sold-img" src="https://down.imgspng.com/thumb.php?src=https://down.imgspng.com/download/0720/sold_out_PNG91.png&h=200&w=200&zc=1">
-        </div>
-        <div>
-          <img class="sold-item-container-shop" src="<%= products[product].image_url %>">
-        </div>
-        <% } else { %>
-        <div>
-          <img class="item-container-shop" src="<%= products[product].image_url %>">
-        </div>
-        <% } %>
+        <input class="max-price" type="text" name="max_price" placeholder="Max. price" style="width: 150px; margin: 0; margin-bottom: 1em;">
       </div>
-
-      <div class = "item-info">
-        <div>
-          <b>TITLE:</b> <span class = "product-title"><%= products[product].title %> </span>
-        </div>
-        <div>
-          <b>PRICE:</b> $<%= products[product].price %>
-        </div>
-        <div>
-          <b>SELLER:</b> <%= products[product].username %>
-        </div>
-        <div class="entire-description-box">
-          <b>DESCRIPTION:</b> <span class="shop-description-txt"> <%= products[product].description.length > 43 ? products[product].description.substring(0,42) + "..." : products[product].description%></span>
-          <span class="shop-full-description" style="display:none;"> <%= products[product].description%> </span>
-        </div>
-
-        <p id= "product-id"><%= products[product].id%></p>
-
-          <span id="clickable-heart" style='cursor:pointer; <%= products[product].favourite ? "color:#ba1f3b" : "color:#000000" %>'>
-            <i class="fa-solid fa-heart heart-icon" data-fav= '<%= products[product].favourite ? true : false %>' ></i>
-          </span>
-      <form action="/shop/messages/<%=products[product].username%>" method="GET">
-        <button type="submit" style="width:150px;">Message Seller</button>
-      </form>
-      </div>
-    <% } %>
+    </form>
   </div>
 
-</section>
+  <div class="shop-header">
+    <p><h1 id="shop-text">Shop All Items</h1></p>
+  </div>
 
+  <section class="items-shop-page">
+    <div class = "inside-itemsshop-page">
+      <% for (let product in products) { %>
 
-     <!-- Bootstrap JS -->
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- Scripts -->
- <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
- <script type="text/javascript" src="/scripts/favourites.js"></script>
+        <div id="sold-container">
+          <% if (products[product].is_sold === true) { %>
+          <div class="sold-popup">
+            <img class="sold-img" src="https://down.imgspng.com/thumb.php?src=https://down.imgspng.com/download/0720/sold_out_PNG91.png&h=200&w=200&zc=1">
+          </div>
+          <div>
+            <img class="sold-item-container-shop" src="<%= products[product].image_url %>">
+          </div>
+          <% } else { %>
+          <div>
+            <img class="item-container-shop" src="<%= products[product].image_url %>">
+          </div>
+          <% } %>
+        </div>
 
+        <div class = "item-info">
+          <div>
+            <b>TITLE:</b> <span class = "product-title"><%= products[product].title %> </span>
+          </div>
+          <div>
+            <b>PRICE:</b> $<%= products[product].price %>
+          </div>
+          <div>
+            <b>SELLER:</b> <%= products[product].username %>
+          </div>
+          <div class="entire-description-box">
+            <b>DESCRIPTION:</b> <span class="shop-description-txt"> <%= products[product].description.length > 43 ? products[product].description.substring(0,42) + "..." : products[product].description%></span>
+            <span class="shop-full-description" style="display:none;"> <%= products[product].description%> </span>
+          </div>
+
+          <p id= "product-id"><%= products[product].id%></p>
+
+            <span id="clickable-heart" style='cursor:pointer; <%= products[product].favourite ? "color:#ba1f3b" : "color:#000000" %>'>
+              <i class="fa-solid fa-heart heart-icon" data-fav= '<%= products[product].favourite ? true : false %>' ></i>
+            </span>
+        <form action="/shop/messages/<%=products[product].username%>" method="GET">
+          <button type="submit" style="width:150px;">Message Seller</button>
+        </form>
+        </div>
+      <% } %>
+    </div>
+
+  </section>
+
+<!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!-- Scripts -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/favourites.js"></script>
 </body>
 <%- include('partials/footer') %>
 </html>

@@ -1,17 +1,10 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
 
   router.get("/login", (req, res) => {
-    const username = req.session.username
+    const username = req.session.username;
     res.render("login", {username});
   });
 
@@ -29,7 +22,7 @@ module.exports = (db) => {
       })
       .catch(err => {
         res
-          .status(500).send("Username does not exist. Please try again.")
+          .status(500).send("Username does not exist. Please try again.");
       });
   });
 
@@ -37,7 +30,6 @@ module.exports = (db) => {
     req.session = null;
     res.redirect(`/users/login`);
   });
-
   return router;
 };
 

@@ -5,49 +5,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
+<!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <title>Homepage</title>
 
-  <!-- Custom Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
+<!-- Custom Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
 
-   <!-- Internal CSS -->
-   <link rel="stylesheet" href="/styles/homepage.css" type="text/css"/>
+<!-- Internal CSS -->
+  <link rel="stylesheet" href="/styles/homepage.css" type="text/css"/>
 
 </head>
 
 <body class ="main-page-body">
   <%- include('partials/header') %>
-<div class="top-homepage">
-  <img class="banner" src="https://media-exp1.licdn.com/dms/image/C4D1BAQGRUPPOfK9KfQ/company-background_10000/0/1625576064677?e=2147483647&v=beta&t=t8kKhNIMg5HLZ2N4ikml2STQVa8R6RjqQUscdBx5PJg">
-  <p id="tagline">Find fine jewellery for less sold by sellers in your area!</p>
-  <div id="home-shop-all-button">
-    <form action="/shop/all-items" method="GET">
-      <button type="submit">Shop All Jewelry</button>
-      </form>
+  <div class="top-homepage">
+    <img class="banner" src="https://media-exp1.licdn.com/dms/image/C4D1BAQGRUPPOfK9KfQ/company-background_10000/0/1625576064677?e=2147483647&v=beta&t=t8kKhNIMg5HLZ2N4ikml2STQVa8R6RjqQUscdBx5PJg">
+    <p id="tagline">Find fine jewellery for less sold by sellers in your area!</p>
+    <div id="home-shop-all-button">
+      <form action="/shop/all-items" method="GET">
+        <button type="submit">Shop All Jewelry</button>
+        </form>
+    </div>
+    <p><h1 id="homepage-text">Featured Items</h1></p>
   </div>
-  <p><h1 id="homepage-text">Featured Items</h1></p>
-</div>
-<section class="features-container">
-  <div>
-    <% for (let image in images) { %>
-      <img style="cursor:pointer;" class="item-container" src="<%= images[image].image_url %>">
-    <% } %>
+  <section class="features-container">
+    <div>
+      <% for (let image in images) { %>
+        <img style="cursor:pointer;" class="item-container" src="<%= images[image].image_url %>">
+      <% } %>
   </div>
-</section>
+  </section>
 
-     <!-- Bootstrap JS -->
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <!-- Scripts -->
-<script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-<script type="text/javascript" src="/scripts/homepage.js"></script>
-
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/homepage.js"></script>
 </body>
 <%- include('partials/footer') %>
 </html>
