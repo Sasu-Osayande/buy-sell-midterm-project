@@ -7,16 +7,16 @@ SASANIJEWLS is a multi-page application built with Node, Express, JQuery, SASS a
 ## Final Project Screenshots 
 
 ### Featured page 
-!["Screenshot of featured page"]()
+!["Screenshot of featured page"](https://github.com/scee10/buy-sell-midterm-project/blob/master/docs/screenshot-featured-page.png?raw=true)
 
 ### Shop all page 
-!["Screenshot of shop all page"]()
+!["Screenshot of shop all page"](https://github.com/scee10/buy-sell-midterm-project/blob/master/docs/screenshot-shop-all-page.png?raw=true)
 
 ### My shop page 
-!["Screenshot of my shop page"]()
+!["Screenshot of my shop page"](https://github.com/scee10/buy-sell-midterm-project/blob/master/docs/screenshot-my-shop-page.png?raw=true)
 
 ### Messaging feature
-!["Screenshot of messaging feature"]()
+!["Screenshot of messaging feature"](https://github.com/scee10/buy-sell-midterm-project/blob/master/docs/screenshot-messaging-feature.png?raw=true)
 
 ## Getting Started
 
