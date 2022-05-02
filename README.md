@@ -55,6 +55,6 @@ SASANIJEWLS is a multi-page application built with Node, Express, JQuery, SASS a
 
 ## Authors
 
-[Stefani Chhor] (https://github.com/scee10)
-[Sasu Osayande] (https://github.com/Sasu-Osayande)
+- [Stefani Chhor](https://github.com/scee10)
+- [Sasu Osayande](https://github.com/Sasu-Osayande)
 
