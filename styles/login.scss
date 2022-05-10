@@ -17,6 +17,17 @@
   color: white;
 }
 
+button {
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  border: 2px solid rgb(182, 182, 182)
+}
+
+button:hover {
+  background-color: rgb(182, 182, 182);
+  color: white;
+}
+
 footer {
   margin-top: auto;
 }

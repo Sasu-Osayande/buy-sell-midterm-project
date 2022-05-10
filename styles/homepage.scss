@@ -37,8 +37,19 @@
 .item-container {
   height: 14em;
   width: 14em;
-  border: 0.1em solid black;
+  box-shadow: 5px 4px 0.3px #a29d952e;
   margin: 1.5em;
+}
+
+button {
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  border: 2px solid rgb(182, 182, 182)
+}
+
+button:hover {
+  background-color: rgb(182, 182, 182);
+  color: white;
 }
 
 #home-shop-all-button {
