@@ -75,7 +75,7 @@
 .item-container-shop {
   height: 14em;
   width: 14em;
-  border: 0.1em solid black;
+  box-shadow: 5px 4px 0.3px #a29d952e;
   margin-right: 1em;
   margin-bottom: 2em;
 }
@@ -88,7 +88,17 @@
   font-size: 13px;
 }
 
+button {
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  border: 2px solid rgb(182, 182, 182)
+}
+
+button:hover {
+  background-color: rgb(182, 182, 182);
+  color: white;
+}
+
 footer {
   margin-top: auto;
 }
-
